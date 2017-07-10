@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import {App} from './components/App/App.js';
 import store from './redux/store.js'
 import {handleNewPoint} from './redux/actions';
+import {Provider} from 'react-redux';
 import './index.css';
 
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+  <App />
+  </Provider>,
   document.getElementById('root')
 );
