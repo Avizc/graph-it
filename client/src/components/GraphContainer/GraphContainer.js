@@ -1,5 +1,5 @@
 import React from 'react';
-import {VictoryBar, VictoryChart} from 'victory';
+import {VictoryBar, VictoryChart, VictoryAxis} from 'victory';
 import {connect} from 'react-redux';
 import './GraphContainer.css';
 
@@ -10,7 +10,7 @@ export class GraphContainer extends React.Component{
   }
 
   componentDidMount(){
-    console.log(this.props.graphData)
+    console.log(this.props.columnNames)
   }
 
   render(){
@@ -18,6 +18,10 @@ export class GraphContainer extends React.Component{
       <section className="graphContainer">
       <VictoryChart domainPadding={24}>
         <VictoryBar data={this.props.graphData} x={'index'} y={'y'}/>
+        <VictoryAxis
+          tickValues={this.props.columnCount}
+          tickFormat={this.props.columnNames}
+        />
       </VictoryChart>
       </section>
     );
@@ -25,7 +29,9 @@ export class GraphContainer extends React.Component{
 }
 
 const mapStateToProps = (state, props) => ({
-  graphData: state.graphData
+  graphData: state.graphData,
+  columnNames: state.graphData.filter(bar => bar.columnName).map(item => item.columnName),
+  columnCount: state.graphData.filter(bar => bar.index).map(item => item.index)
 })
 
 export default connect(mapStateToProps)(GraphContainer);
