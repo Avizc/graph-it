@@ -1,0 +1,58 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\conta\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\conta\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\nodejs;C:\Program Files\Heroku\bin;C:\Ruby24\bin;C:\Program Files\Git\usr\bin;C:\Program Files\MongoDB\Server\3.2\bin;C:\Program Files (x86)\Yarn\bin;C:\Ruby24\bin;C:\Users\conta\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\conta\AppData\Roaming\npm;C:\Program Files\Heroku\bin;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\Git\usr\bin;C:\Users\conta\AppData\Local\Yarn\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  0.27.3
+
+Node version: 
+  7.10.0
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "thinkful-full-stack-template-v2",
+    "version": "0.1.0",
+    "description": "A full-stack starter template",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "heroku-postbuild": "cd client && npm install --only=dev && npm run build",
+      "dev": "run-p dev:server dev:client start",
+      "dev:client": "cd client && cross-env BROWSER=none npm start -- --color=always | xp http://localhost:3000/ http://localhost:8080/",
+      "dev:server": "cd server && npm start",
+      "install": "run-s install:server install:client",
+      "install:server": "cd server && npm install",
+      "install:client": "cd client && npm install"
+    },
+    "cacheDirectories": [
+      "node_modules",
+      "server/node_modules",
+      "client/node_modules"
+    ],
+    "author": "Joe Turner <jturner@thinkful.com>",
+    "license": "MIT",
+    "dependencies": {
+      "cross-env": "^3.1.4",
+      "express": "^4.14.1",
+      "http-proxy-middleware": "^0.17.3",
+      "npm-run-all": "^4.0.1",
+      "xp": "^1.0.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: connect ETIMEDOUT 104.16.60.173:443
+      at Object.exports._errnoException (util.js:1050:11)
+      at exports._exceptionWithHostPort (util.js:1073:20)
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1093:14)
