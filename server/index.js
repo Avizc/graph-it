@@ -25,6 +25,18 @@ app.get('/graphSchema',(req,res)=>{
         res.status(500).json({error:'oops something went wrong'});
     });
 });
+app.get('/api/:id',(req,res)=>{
+    Graphs
+    .findById(req.params.id)
+    .exec()
+    .then(graph=>{
+        res.send(graph);
+    })
+    .catch(err=>{
+        console.error(err);
+        res.status(500).json({error:'oops something went wrong'});
+    });
+});
 app.post('/graphSchema',(req,res)=>{
     Graphs
     .create({
@@ -36,7 +48,19 @@ app.post('/graphSchema',(req,res)=>{
         console.error(err);
         res.status(500).json({error:'oops something weng wrong'});
     });
-})
+});
+app.put('/api/:id',(req,res){
+    Graphs
+    .findByIdAndUpdate(req.param.id)
+    .exec()
+    .then(graph=>{
+        res.status(204).end();
+    })
+    .catch(err=>{
+        console.error(err);
+        res.status(500).json({message:'oops something went wrong'});
+    });
+});
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
