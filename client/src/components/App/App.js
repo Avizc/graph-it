@@ -8,8 +8,8 @@ export class App extends React.Component{
     return(
     <div>
       <Header />
-      <AddPointInput/>
       <GraphContainer />
+      <AddPointInput/>
     </div>);
   }
 }
