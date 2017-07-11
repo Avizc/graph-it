@@ -3,14 +3,37 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const {DATABASE_URL,PORT}=require('./config.js');
+const {Graphs}=require('./models.js');
 const morgan=require('morgan');
 const bodyParser=require('body-parser');
 
 mongoose.Promise=global.Promise;
 
 // API endpoints go here!
-
-
+app.get('/graphSchema',(req,res)=>{
+    Graphs
+    .find()
+    .exec()
+    .then(graphs=>{
+        res.json(graphs.map(graph=>graph.apiRepr()));
+    })
+    .catch(err=>{
+        console.error(err);
+        res.status(500).json({error:'oops something went wrong'});
+    });
+});
+app.post('/graphSchema',(req,res)=>{
+    Graphs
+    .create({
+        graphTitle:req.body.graphTitle,
+        yValue:req.body.yValue
+    })
+    .then(graph=>res.status(201).json(graph.apiRepr()))
+    .catch(err=>{
+        console.error(err);
+        res.status(500).json({error:'oops something weng wrong'});
+    });
+})
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
