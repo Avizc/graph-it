@@ -1,7 +1,7 @@
 import {HANDLE_NEW_POINT, TOGGLE_NEW_DATA} from '../actions';
 
 const initialState = {
-  graphData: [{index: 1, data: 12, columnName: 'hello'}, {index: 2, data: 24, columnName: 'hello'}, {index: 3, data: 72, columnName: 'This is only a test'}],
+  graphData: [{index: 1, data: 12, columnName: 'hello'}, {index: 2, data: 24, columnName: 'hello'}],
   graphName: 'New Graph',
   newDataToggle: false
 };

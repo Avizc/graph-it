@@ -22,6 +22,11 @@ export class GraphContainer extends React.Component{
           tickValues={this.props.columnCount}
           tickFormat={this.props.columnNames}
         />
+        <VictoryAxis
+          dependentAxis
+          // tickFormat specifies how ticks should be displayed
+          tickFormat={(x) => (`${x}`)}
+        />
       </VictoryChart>
       </section>
     );
