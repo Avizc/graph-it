@@ -3,10 +3,12 @@ const express=require('express');
 const mongoose=require('mongoose');
 const graphSchema=mongoose.Schema({
     graphTitle:{type:String},
-    indexValue:{type:Number},
-    yValue:{type:Number},
-    xValueLabel:{type:String},
-    yValueLabel:{type:String}
+    graphData:{
+        indexValue:{type:Number},
+        data:{type:Number},
+        xValueLabel:{type:String},
+        yValueLabel:{type:String}
+    }
 });
 // const savedGraphSchema=mongoose.Schema({
 //     savedGraphTitle:{type:String,required:true}
@@ -16,7 +18,7 @@ graphSchema.methods.apiRepr=function(){
         id:this._id,
         graphTitle:this.graphTitle,
         indexValue:this.indexValue,
-        yValue:this.yValue,
+        data:this.data,
         xValueLabel:this.xValueLabel,
         yValueLabel:this.yValueLabel
     };

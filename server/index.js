@@ -41,7 +41,13 @@ app.post('/graphSchema',(req,res)=>{
     Graphs
     .create({
         graphTitle:req.body.graphTitle,
-        yValue:req.body.yValue
+        graphData:{
+            indexValue:req.body.indexValue,
+            data:req.body.data,
+            columnName:req.body.columnName,
+            xValueLabel:req.body.xValueLabel,
+            yValueLabel:req.body.yValueLabel
+        }
     })
     .then(graph=>res.status(201).json(graph.apiRepr()))
     .catch(err=>{
@@ -49,7 +55,14 @@ app.post('/graphSchema',(req,res)=>{
         res.status(500).json({error:'oops something weng wrong'});
     });
 });
-app.put('/api/:id',(req,res){
+app.put('/api/:id',(req,res)=>{
+    const updateThisRabbit={};
+    const updateGraph=['graphTitle','indexValue','data','columnName','xValueLabel','yValueLabel'];
+    updateGraph.forEach(graph=>{
+        if(req.body[graph]){
+            return updateThisRabbit[graph]=req.body[graph];
+        }
+    });
     Graphs
     .findByIdAndUpdate(req.param.id)
     .exec()
