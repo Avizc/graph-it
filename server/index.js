@@ -3,6 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const {DATABASE_URL,PORT}=require('./config.js');
+const morgan=require('morgan');
+const bodyParser=require('body-parser');
+
+mongoose.Promise=global.Promise;
 
 // API endpoints go here!
 
