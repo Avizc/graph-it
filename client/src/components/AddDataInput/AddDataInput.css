@@ -1,0 +1,9 @@
+.container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputForm{
+  display: flex;
+  flex-direction: column;
+}
