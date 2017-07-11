@@ -35,8 +35,9 @@ app.get("/api/:id", (req, res) => {
     });
 });
 app.post("/api/graphSchema", (req, res) => {
-  const updateThisGraph = {};
-  const updateGraph = [
+  const createThisGraph = [];
+  let currentGraph;
+  const graphComponents = [
     "graphTitle",
     "indexValue",
     "data",
@@ -46,16 +47,27 @@ app.post("/api/graphSchema", (req, res) => {
     "xValueLabel",
     "yValueLabel"
   ];
-  console.log(req.body.graphData);
+  const setGraphInfo=[{graphTitle:"Rabbits"},{indexValue:3},{data:5},{suffix:"hi"},{prefix:"goodbye"},{columnName:"names"},{xValueLabel:"rabbits"},{yValueLabel:"carrots"}];
+  for(let i=0;i<setGraphInfo.length;i++){
+    currentGraph={};
+    graphComponents.forEach(key=>{
+      if(setGraphInfo[i][key]){
+        return currentGraph[key]=setGraphInfo[i][key];
+      }
+    })
+  }
+
   updateGraph.forEach(graph => {
-    if (req.body.graphData[graph]) {
-      return (updateThisGraph[graph] = req.body.graphData[graph]);
+    for(let i=0;ilength.graphData.length);{
+        if (req.body.graphData[graph]) {
+            return (updateThisGraph[graph] = req.body.graphData[graph]);
+        }
     }
   });
   console.log(updateThisGraph);
   Graphs.create({
     graphTitle: req.body.graphTitle,
-    graphData: updateThisGraph // CHECK FOR HERE!
+    graphData: updateThisGraph // CHECK FOR HERE! be array for frontend
     // indexValue:req.body.indexValue,
     // data:req.body.data,
     // columnName:req.body.columnName,
