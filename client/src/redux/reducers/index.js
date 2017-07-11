@@ -1,4 +1,4 @@
-import {HANDLE_NEW_POINT, TOGGLE_NEW_DATA, RESET_GRAPH} from '../actions';
+import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH} from '../actions';
 
 const initialState = {
   graphData: [],
@@ -9,8 +9,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch(action.type){
-    case HANDLE_NEW_POINT:
-      console.log(state.graphData)
+    case HANDLE_NEW_DATA:
       return Object.assign({}, state, {graphData: [...state.graphData, {index: state.graphData.length + 1, data: Number(action.data), columnName: action.columnName}]});
     case TOGGLE_NEW_DATA:
       return Object.assign({}, state, {newDataToggle: !state.newDataToggle})
