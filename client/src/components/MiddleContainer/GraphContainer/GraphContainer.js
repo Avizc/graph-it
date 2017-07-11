@@ -25,7 +25,7 @@ export class GraphContainer extends React.Component{
         <VictoryAxis
           dependentAxis
           // tickFormat specifies how ticks should be displayed
-          tickFormat={(x) => (`${x}`)}
+          tickFormat={(x) => (`$${x}k`)}
         />
       </VictoryChart>
       </section>

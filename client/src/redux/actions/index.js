@@ -9,3 +9,8 @@ export const TOGGLE_NEW_DATA = 'TOGGLE_NEW_DATA';
 export const toggleNewData = () => ({
   type: TOGGLE_NEW_DATA
 });
+
+export const RESET_GRAPH = 'RESET_GRAPH';
+export const resetGraph = () => ({
+  type: RESET_GRAPH
+});
