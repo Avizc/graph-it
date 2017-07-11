@@ -56,15 +56,6 @@ app.post("/api/graphSchema", (req, res) => {
       }
     })
   }
-
-  updateGraph.forEach(graph => {
-    for(let i=0;ilength.graphData.length);{
-        if (req.body.graphData[graph]) {
-            return (updateThisGraph[graph] = req.body.graphData[graph]);
-        }
-    }
-  });
-  console.log(updateThisGraph);
   Graphs.create({
     graphTitle: req.body.graphTitle,
     graphData: updateThisGraph // CHECK FOR HERE! be array for frontend
