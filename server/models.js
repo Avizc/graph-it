@@ -3,13 +3,13 @@ const express=require('express');
 const mongoose=require('mongoose');
 const graphSchema=mongoose.Schema({
     graphTitle:{type:String},
-    graphData:{
-        indexValue:{type:Number},
-        data:{type:Number},
-        columnName:{type:String},
-        xValueLabel:{type:String},
-        yValueLabel:{type:String}
-    }
+    graphData:{type:Array}
+    //     indexValue:{type:Number},
+    //     data:{type:Number},
+    //     columnName:{type:String},
+    //     xValueLabel:{type:String},
+    //     yValueLabel:{type:String}
+    // }
 });
 // const savedGraphSchema=mongoose.Schema({
 //     savedGraphTitle:{type:String,required:true}
