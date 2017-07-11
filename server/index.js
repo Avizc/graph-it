@@ -58,7 +58,7 @@ app.post("/api/graphSchema", (req, res) => {
   }
   Graphs.create({
     graphTitle: req.body.graphTitle,
-    graphData: updateThisGraph // CHECK FOR HERE! be array for frontend
+    graphData: currentGraph // CHECK FOR HERE! be array for frontend
     // indexValue:req.body.indexValue,
     // data:req.body.data,
     // columnName:req.body.columnName,
