@@ -48,7 +48,7 @@ app.post('/api/graphSchema',(req,res)=>{
     Graphs
     .create({
         graphTitle:req.body.graphTitle,
-        graphData:(req.param.graphData, {$set:updateThisGraph}) // CHECK FOR HERE!
+        graphData:updateThisGraph // CHECK FOR HERE!
             // indexValue:req.body.indexValue,
             // data:req.body.data,
             // columnName:req.body.columnName,
@@ -56,7 +56,6 @@ app.post('/api/graphSchema',(req,res)=>{
             // prefix:req.body.prefix,
             // xValueLabel:req.body.xValueLabel,
             // yValueLabel:req.body.yValueLabel
-        }
     })
     .then(graph=>res.status(201).json(graph.apiRepr()))
     .catch(err=>{
