@@ -71,7 +71,17 @@ app.put('/api/:id',(req,res)=>{
     })
     .catch(err=>{
         console.error(err);
-        res.status(500).json({message:'oops something went wrong'});
+        res.status(500).json({error:'oops something went wrong'});
+    });
+});
+app.delete('/api/:id',(req,res)=>{
+    Graphs
+    .findByIdAndRemove(req.params.id)
+    .exec()
+    .then(graph=>res.status(204).end())
+    .catch(err=>{
+        console.error(err);
+        res.status(500).json({error:'oops something went wrong'});
     });
 });
 // Serve the built client
