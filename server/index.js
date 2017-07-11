@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 mongoose.Promise=global.Promise;
 
 // API endpoints go here!
-app.get('/graphSchema',(req,res)=>{
+app.get('/api/graphSchema',(req,res)=>{
     Graphs
     .find()
     .exec()
@@ -37,16 +37,25 @@ app.get('/api/:id',(req,res)=>{
         res.status(500).json({error:'oops something went wrong'});
     });
 });
-app.post('/graphSchema',(req,res)=>{
+app.post('/api/graphSchema',(req,res)=>{
+    const updateThisGraph={};
+    const updateGraph=['graphTitle','indexValue','data','suffix','prefix','columnName','xValueLabel','yValueLabel'];
+    updateGraph.forEach(graph=>{
+        if(req.body[graph]){
+            return updateThisGraph[graph]=req.body[graph];
+        }
+    });
     Graphs
     .create({
         graphTitle:req.body.graphTitle,
-        graphData:{
-            indexValue:req.body.indexValue,
-            data:req.body.data,
-            columnName:req.body.columnName,
-            xValueLabel:req.body.xValueLabel,
-            yValueLabel:req.body.yValueLabel
+        graphData:(req.param.graphData, {$set:updateThisGraph}) // CHECK FOR HERE!
+            // indexValue:req.body.indexValue,
+            // data:req.body.data,
+            // columnName:req.body.columnName,
+            // suffix:req.body.suffix,
+            // prefix:req.body.prefix,
+            // xValueLabel:req.body.xValueLabel,
+            // yValueLabel:req.body.yValueLabel
         }
     })
     .then(graph=>res.status(201).json(graph.apiRepr()))
@@ -57,7 +66,7 @@ app.post('/graphSchema',(req,res)=>{
 });
 app.put('/api/:id',(req,res)=>{
     const updateThisGraph={};
-    const updateGraph=['graphTitle','indexValue','data','columnName','xValueLabel','yValueLabel'];
+    const updateGraph=['graphTitle','indexValue','data','suffix','prefix','columnName','xValueLabel','yValueLabel'];
     updateGraph.forEach(graph=>{
         if(req.body[graph]){
             return updateThisRabbit[graph]=req.body[graph];
