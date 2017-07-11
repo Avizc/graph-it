@@ -13,3 +13,4 @@ export class AddPointButton extends React.Component{
     );
   }
 }
+
