@@ -1,11 +1,11 @@
 import React from 'react';
-import NewGraphButton from './NewGraphButton/NewGraphButton.js';
+import ResetGraphButton from './ResetGraphButton/ResetGraphButton.js';
 import './UpperContainer.css';
 
 export default function UpperContainer(props){
   return(
     <section className="upper-container">
-      <NewGraphButton />
+      <ResetGraphButton />
     </section>
   );
 }

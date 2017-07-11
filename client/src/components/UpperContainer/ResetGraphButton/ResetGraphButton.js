@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {resetGraph} from '../../../redux/actions'
-export class NewGraphButton extends React.Component{
+export class ResetGraphButton extends React.Component{
 
   handleClick(e){
     e.preventDefault();
@@ -22,4 +22,4 @@ const mapStateToProps = (state, actions) => ({
   newGraph: state.newGraphToggle
 })
 
-export default connect(mapStateToProps)(NewGraphButton);
+export default connect(mapStateToProps)(ResetGraphButton);
