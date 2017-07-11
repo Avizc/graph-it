@@ -4,8 +4,10 @@ const mongoose = require('mongoose');
 const app = express();
 const {DATABASE_URL,PORT}=require('./config.js');
 const {Graphs}=require('./models.js');
-const morgan=require('morgan');
 const bodyParser=require('body-parser');
+
+app.use(bodyParser.json());
+
 
 mongoose.Promise=global.Promise;
 
@@ -15,7 +17,8 @@ app.get('/graphSchema',(req,res)=>{
     .find()
     .exec()
     .then(graphs=>{
-        res.json(graphs.map(graph=>graph.apiRepr()));
+        res.send(graphs);
+        // res.json(graphs.map(graph=>graph.apiRepr()));
     })
     .catch(err=>{
         console.error(err);
@@ -46,7 +49,7 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 
 let server;
 
-function runServer(databaseUrl=DATABASE_URL,post=PORT){
+function runServer(databaseUrl=DATABASE_URL,port=PORT){
     return new Promise((resolve,reject)=>{
         mongoose.connect(databaseUrl, err=>{
             if(err){
