@@ -8,10 +8,9 @@ export class AddDataInput extends React.Component{
 
   handleSubmit(e){
     e.preventDefault()
-    const x = this.xValue.value;
     const data = this.dataValue.value;
     const columnName = this.columnName.value;
-    this.props.dispatch(handleNewPoint(x, data, columnName))
+    this.props.dispatch(handleNewPoint(data, columnName))
     console.log(store.getState())
   }
 

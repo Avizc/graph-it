@@ -1,8 +1,7 @@
 export const HANDLE_NEW_POINT = 'HANDLE_NEW_POINT';
-export const handleNewPoint = (index, y, columnName) => ({
+export const handleNewPoint = (data, columnName) => ({
   type: HANDLE_NEW_POINT,
-  index,
-  y,
+  data,
   columnName
 });
 

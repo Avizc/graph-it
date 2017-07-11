@@ -1,7 +1,10 @@
 import React from 'react';
+import './Header.css';
 
 export default function Header(props){
   return(
-    <header><h1>Graph.it</h1></header>
+    <header className="container">
+      <h1>Graph.it</h1>
+    </header>
   );
 }

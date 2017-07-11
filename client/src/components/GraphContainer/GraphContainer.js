@@ -17,7 +17,7 @@ export class GraphContainer extends React.Component{
     return(
       <section className="graphContainer">
       <VictoryChart domainPadding={24}>
-        <VictoryBar data={this.props.graphData} x={'index'} y={'y'}/>
+        <VictoryBar data={this.props.graphData} x={'index'} y={'data'}/>
         <VictoryAxis
           tickValues={this.props.columnCount}
           tickFormat={this.props.columnNames}
