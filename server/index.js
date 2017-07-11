@@ -64,7 +64,7 @@ app.put('/api/:id',(req,res)=>{
         }
     });
     Graphs
-    .findByIdAndUpdate(req.param.id)
+    .findByIdAndUpdate(req.param.id,{$set:updateThisRabbit})
     .exec()
     .then(graph=>{
         res.status(204).end();
