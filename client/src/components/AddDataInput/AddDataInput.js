@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {handleNewPoint} from '../../redux/actions';
 import store from '../../redux/store.js'
-import './AddPointInput.css';
+import './AddDataInput.css';
 
-export class AddPointInput extends React.Component{
+export class AddDataInput extends React.Component{
 
   handleSubmit(e){
     e.preventDefault()
@@ -28,4 +28,4 @@ export class AddPointInput extends React.Component{
   }
 }
 
-export default connect()(AddPointInput)
+export default connect()(AddDataInput)
