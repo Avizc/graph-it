@@ -1,6 +1,6 @@
 import React from 'react';
-import AddDataButton from '../AddDataButton/AddDataButton.js';
-import AddDataInput from '../AddDataInput/AddDataInput.js';
+import AddDataButton from './AddDataButton/AddDataButton.js';
+import AddDataInput from './AddDataInput/AddDataInput.js';
 import {connect} from 'react-redux';
 import './AddDataContainer.css';
 

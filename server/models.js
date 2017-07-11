@@ -6,6 +6,7 @@ const graphSchema=mongoose.Schema({
     graphData:{
         indexValue:{type:Number},
         data:{type:Number},
+        columnName:{type:String},
         xValueLabel:{type:String},
         yValueLabel:{type:String}
     }

@@ -1,14 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {toggleNewData} from '../../redux/actions';
-import store from '../../redux/store.js'
+import {toggleNewData} from '../../../../redux/actions';
 
 export class AddPointButton extends React.Component{
 
   handelClick(e){
     e.preventDefault();
     this.props.dispatch(toggleNewData())
-    console.log(store.getState())
   }
 
   render(){

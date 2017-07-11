@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {handleNewPoint} from '../../redux/actions';
-import store from '../../redux/store.js'
+import {handleNewPoint} from '../../../../redux/actions';
 import './AddDataInput.css';
 
 export class AddDataInput extends React.Component{
@@ -11,7 +10,6 @@ export class AddDataInput extends React.Component{
     const data = this.dataValue.value;
     const columnName = this.columnName.value;
     this.props.dispatch(handleNewPoint(data, columnName))
-    console.log(store.getState())
   }
 
   render(){

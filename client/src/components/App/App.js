@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Header/Header.js'
-import AddDataContainer from '../AddDataContainer/AddDataContainer.js';
+import LowerContainer from '../LowerContainer/LowerContainer.js';
 import GraphContainer from '../GraphContainer/GraphContainer.js';
 
 export class App extends React.Component{
@@ -9,7 +9,7 @@ export class App extends React.Component{
     <div>
       <Header />
       <GraphContainer />
-      <AddDataContainer />
+      <LowerContainer />
     </div>);
   }
 }
