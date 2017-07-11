@@ -56,7 +56,7 @@ app.post('/graphSchema',(req,res)=>{
     });
 });
 app.put('/api/:id',(req,res)=>{
-    const updateThisRabbit={};
+    const updateThisGraph={};
     const updateGraph=['graphTitle','indexValue','data','columnName','xValueLabel','yValueLabel'];
     updateGraph.forEach(graph=>{
         if(req.body[graph]){
@@ -64,7 +64,7 @@ app.put('/api/:id',(req,res)=>{
         }
     });
     Graphs
-    .findByIdAndUpdate(req.param.id,{$set:updateThisRabbit})
+    .findByIdAndUpdate(req.param.id,{$set:updateThisGraph})
     .exec()
     .then(graph=>{
         res.status(204).end();
