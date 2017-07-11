@@ -49,7 +49,7 @@ app.post('/graphSchema',(req,res)=>{
         res.status(500).json({error:'oops something weng wrong'});
     });
 });
-app.put('/api/:id',(req,res){
+app.put('/api/:id',(req,res)=>{
     Graphs
     .findByIdAndUpdate(req.param.id)
     .exec()
