@@ -55,10 +55,11 @@ app.post("/api/graphSchema", (req, res) => {
         return currentGraph[key]=setGraphInfo[i][key];
       }
     })
+    createThisGraph.push(currentGraph);
   }
   Graphs.create({
     graphTitle: req.body.graphTitle,
-    graphData: currentGraph // CHECK FOR HERE! be array for frontend
+    graphData: createThisGraph // CHECK FOR HERE! be array for frontend
     // indexValue:req.body.indexValue,
     // data:req.body.data,
     // columnName:req.body.columnName,
