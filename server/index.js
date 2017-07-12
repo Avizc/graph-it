@@ -34,41 +34,22 @@ app.get("/api/:id", (req, res) => {
       res.status(500).json({ error: "oops something went wrong" });
     });
 });
-app.post("/api/graphSchema", (req, res) => {
-  const createThisGraph = [];
-  let currentGraph;
-  const graphComponents = [
-    "graphTitle",
-    "indexValue",
-    "data",
-    "suffix",
-    "prefix",
-    "columnName",
-    "xValueLabel",
-    "yValueLabel"
-  ];
-  const setGraphInfo=[{graphTitle:"Rabbits"},{indexValue:3},{data:5},{suffix:"hi"},{prefix:"goodbye"},{columnName:"names"},{xValueLabel:"rabbits"},{yValueLabel:"carrots"}];
-  for(let i=0;i<setGraphInfo.length;i++){
-    currentGraph={};
-    graphComponents.forEach(key=>{
-      if(setGraphInfo[i][key]){
-        return currentGraph[key]=setGraphInfo[i][key];
-      }
-    })
-    createThisGraph.push(currentGraph);
-  }
+app.post("/api/graphSchema", (req, res) => {  
   Graphs.create({
     graphTitle: req.body.graphTitle,
-    graphData: createThisGraph // CHECK FOR HERE! be array for frontend
-    // indexValue:req.body.indexValue,
-    // data:req.body.data,
-    // columnName:req.body.columnName,
-    // suffix:req.body.suffix,
-    // prefix:req.body.prefix,
-    // xValueLabel:req.body.xValueLabel,
-    // yValueLabel:req.body.yValueLabel
+    xLabel: req.body.xLabel,
+    yLabel: req.body.yLabel,
+    prefix: req.body.prefix,
+    suffix: req.body.suffix,
+    graphData:[
+      {index: req.body.index},
+      {label: req.body.label},
+      {data: req.body.data}
+    ]
   })
-    .then(graph => res.status(201).json(graph))
+    .then(graph => {
+      res.status(201).json(graph.apiRepr())
+    })
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: "oops something weng wrong" });
