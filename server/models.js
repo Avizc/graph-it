@@ -20,10 +20,11 @@ graphSchema.methods.apiRepr=function(){
     return{
         id:this._id,
         graphTitle:this.graphTitle,
-        indexValue:this.indexValue,
-        data:this.data,
-        xValueLabel:this.xValueLabel,
-        yValueLabel:this.yValueLabel
+        xLabel:this.xLabel,
+        yLabel:this.yLabel,
+        prefix:this.prefix,
+        suffix:this.suffix,
+        graphData:this.graphData
     };
 }
 const Graphs=mongoose.model('Graphs',graphSchema);
