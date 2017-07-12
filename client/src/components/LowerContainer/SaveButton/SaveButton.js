@@ -1,12 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {saveGraph} from '../../../redux/actions';
+import store from '../../../redux/store'
 import './SaveButton.css'
 
 export class SaveButton extends React.Component{
 
   handleClick(e){
     e.preventDefault();
-    console.log('hello');
+    console.log('hello', store.getState());
+    this.props.dispatch(saveGraph(store.getState()))
   }
 
   render(){

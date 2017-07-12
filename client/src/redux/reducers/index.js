@@ -1,12 +1,13 @@
-import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH} from '../actions';
+import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE} from '../actions';
 
 const initialState = {
   graphData: [],
   graphTitle: '',
   prefix: '',
   suffix: '',
+  feedback: 'You have not saved yet',
   newDataToggle: false,
-  newGraphToggle: false
+  newGraphToggle: true
 };
 
 export const reducer = (state = initialState, action) => {
@@ -21,6 +22,13 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {newDataToggle: !state.newDataToggle})
     case RESET_GRAPH:
       return Object.assign({}, state, initialState)
+    case HANDLE_SAVE:
+      return Object.assign({}, state, {feedback: action.feedback})
+    case HANDLE_ERROR:
+      return Object.assign({}, state, {feedback: action.error})
+    case SET_GRAPH_TO_STATE:
+      console.log(action)
+      return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false});
   default:
     return state;
   }
