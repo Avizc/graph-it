@@ -34,21 +34,34 @@ app.get("/api/:id", (req, res) => {
       res.status(500).json({ error: "oops something went wrong" });
     });
 });
-app.post("/api/graphSchema", (req, res) => {  
+app.post("/api/graphSchema", (req, res) => {
+  const confirmedData = [];
+  let currentObj;
+  const checkedKeys = ["index", "data", "label"];
+  const dataArr = req.body.graphData;
+
+  for (let i = 0; i < dataArr.length; i++) {
+    currentObj = {};
+    checkedKeys.forEach(key => {
+      if (dataArr[i][key]) {
+        currentObj[key] = dataArr[i][key];
+      }
+    });
+    confirmedData.push(currentObj);
+  }
+
+  console.log('### THIS IS DATA ###' ,confirmedData);
+
   Graphs.create({
     graphTitle: req.body.graphTitle,
     xLabel: req.body.xLabel,
     yLabel: req.body.yLabel,
     prefix: req.body.prefix,
     suffix: req.body.suffix,
-    graphData:[
-      {index: req.body.index},
-      {label: req.body.label},
-      {data: req.body.data}
-    ]
+    graphData: confirmedData
   })
     .then(graph => {
-      res.status(201).json(graph.apiRepr())
+      res.status(201).json(graph.apiRepr());
     })
     .catch(err => {
       console.error(err);
