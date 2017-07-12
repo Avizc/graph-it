@@ -1,15 +1,17 @@
-'use strict';
+// 'use strict';
 const express=require('express');
 const mongoose=require('mongoose');
 const graphSchema=mongoose.Schema({
     graphTitle:{type:String},
-    graphData:{type:Array}
-    //     indexValue:{type:Number},
-    //     data:{type:Number},
-    //     columnName:{type:String},
-    //     xValueLabel:{type:String},
-    //     yValueLabel:{type:String}
-    // }
+    xLabel:{type:String},
+    yLabel:{type:String},
+    prefix:{type:String},
+    suffix:{type:String},
+    graphData:[
+        {index:Number},
+        {label:String},
+        {data:Number}
+    ]
 });
 // const savedGraphSchema=mongoose.Schema({
 //     savedGraphTitle:{type:String,required:true}
