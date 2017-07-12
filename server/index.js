@@ -5,13 +5,26 @@ const app = express();
 const { DATABASE_URL, PORT } = require("./config.js");
 const { Graphs } = require("./models.js");
 const bodyParser = require("body-parser");
-
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  next();
+});
+
+app.options('*', (req, res) => {
+  res.sendStatus(200);
+});
+
 // API endpoints go here!
-app.get("/api/graphSchema", (req, res) => {
+app.get("/api/graphs", (req, res) => {
   Graphs.find()
     .exec()
     .then(graphs => {
@@ -23,7 +36,7 @@ app.get("/api/graphSchema", (req, res) => {
       res.status(500).json({ error: "oops something went wrong" });
     });
 });
-app.get("/api/:id", (req, res) => {
+app.get("/api/graphs/:id", (req, res) => {
   Graphs.findById(req.params.id)
     .exec()
     .then(graph => {
@@ -34,7 +47,8 @@ app.get("/api/:id", (req, res) => {
       res.status(500).json({ error: "oops something went wrong" });
     });
 });
-app.post("/api/graphSchema", (req, res) => {
+app.post("/api/graphs", (req, res) => {
+  console.log('#####', req.body)
   const confirmedData = [];
   let currentObj;
   const checkedKeys = ["index", "data", "label"];
@@ -61,14 +75,14 @@ app.post("/api/graphSchema", (req, res) => {
     graphData: confirmedData
   })
     .then(graph => {
-      res.status(201).json(graph.apiRepr());
+      res.status(201).json(graph);
     })
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: "oops something weng wrong" });
     });
 });
-app.put("/api/:id", (req, res) => {
+app.put("/api/graphs/:id", (req, res) => {
   const updateThisGraph = {};
   const updateGraph = [
     "graphTitle",
@@ -95,7 +109,7 @@ app.put("/api/:id", (req, res) => {
       res.status(500).json({ error: "oops something went wrong" });
     });
 });
-app.delete("/api/:id", (req, res) => {
+app.delete("/api/graphs/:id", (req, res) => {
   Graphs.findByIdAndRemove(req.params.id)
     .exec()
     .then(graph => res.status(204).end())

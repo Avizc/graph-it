@@ -5,8 +5,6 @@ import store from './redux/store.js'
 import {handleNewPoint, toggleNewData, handleGetByIdAndSetState} from './redux/actions';
 import {Provider} from 'react-redux';
 import './index.css';
-
-store.dispatch(handleGetByIdAndSetState('59667e8495b00349e055ff3a'))
 console.log(store.getState())
 
 ReactDOM.render(

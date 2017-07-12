@@ -7,7 +7,7 @@ const graphSchema = mongoose.Schema({
   yLabel: { type: String },
   prefix: { type: String },
   suffix: { type: String },
-  graphData: [{ index: Number }, { label: String }, { data: Number }]
+  graphData: {type: Array}
 });
 // const savedGraphSchema=mongoose.Schema({
 //     savedGraphTitle:{type:String,required:true}
