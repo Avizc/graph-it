@@ -10,12 +10,14 @@ export class GraphContainer extends React.Component{
   }
 
   componentDidMount(){
-    console.log(this.props.columnNames)
+    console.log(this.props.graphName)
+    console.log('PREFIXX', this.props.prefix)
   }
 
   render(){
     return(
-      <section className="graphContainer">
+      <section className="graph-container">
+        <h3>{this.props.title}</h3>
       <VictoryChart domainPadding={24}>
         <VictoryBar data={this.props.graphData} x={'index'} y={'data'}/>
         <VictoryAxis
@@ -25,7 +27,7 @@ export class GraphContainer extends React.Component{
         <VictoryAxis
           dependentAxis
           // tickFormat specifies how ticks should be displayed
-          tickFormat={(x) => (`$${x}k`)}
+          tickFormat={(x) => (`${this.props.prefix}${x}${this.props.suffix}`)}
         />
       </VictoryChart>
       </section>
@@ -36,7 +38,10 @@ export class GraphContainer extends React.Component{
 const mapStateToProps = (state, props) => ({
   graphData: state.graphData,
   columnNames: state.graphData.filter(bar => bar.columnName).map(item => item.columnName),
-  columnCount: state.graphData.filter(bar => bar.index).map(item => item.index)
+  columnCount: state.graphData.filter(bar => bar.index).map(item => item.index),
+  prefix: state.prefix,
+  suffix: state.suffix,
+  title: state.graphTitle
 })
 
 export default connect(mapStateToProps)(GraphContainer);

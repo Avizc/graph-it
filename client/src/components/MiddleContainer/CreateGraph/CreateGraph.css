@@ -6,4 +6,27 @@
 form{
   display: flex;
   flex-direction: column;
+  margin: 4px;
+}
+
+.create-graph{
+  background-color: #FEFCFD;
+  padding: 45px;
+  border-radius: 6px;
+  margin-bottom: 20vh;
+}
+
+h3{
+  color: white;
+  font-size: 3em;
+  font-family: 'Lato';
+  text-align: center;
+  margin-top: 0;
+}
+
+label{
+  text-align: center;
+  font-family: 'Lato';
+  font-weight: 600;
+  color: #3B3355;
 }

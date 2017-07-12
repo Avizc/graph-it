@@ -14,7 +14,7 @@ export class AddDataInput extends React.Component{
 
   render(){
     return(
-      <div className="container">
+      <div className="input-container">
         <form className="inputForm">
           <label>Column data:</label><input ref={(dataValue) => this.dataValue = dataValue} type="text" placeholder="240k"></input>
           <label>Column name:</label><input ref={(name) => this.columnName = name} type="text" placeholder="Quarter 3 earnings"></input>
