@@ -1,4 +1,12 @@
-.graphContainer{
+.graph-container{
   width: 40vw;
   margin: 0 auto;
+  margin-bottom: 35px;
+  background-color: #FEFCFD;
+  padding: 0 15px;
+  border-radius: 6px;
+}
+
+h3{
+  text-align: center;
 }

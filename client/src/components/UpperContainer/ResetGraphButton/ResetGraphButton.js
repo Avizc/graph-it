@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {resetGraph} from '../../../redux/actions'
+import './ResetGraphButton.css';
 export class ResetGraphButton extends React.Component{
 
   handleClick(e){
@@ -13,7 +14,7 @@ export class ResetGraphButton extends React.Component{
       return null;
     }
     return(
-      <button onClick={(e)=> this.handleClick(e)} className="new-graph-button">New Graph</button>
+      <button onClick={(e)=> this.handleClick(e)} className="new-graph-button">Reset Graph</button>
     );
   }
 }
