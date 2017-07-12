@@ -28,6 +28,7 @@ app.get("/api/graphs", (req, res) => {
   Graphs.find()
     .exec()
     .then(graphs => {
+      console.log(graphs);
       res.send(graphs);
       // res.json(graphs.map(graph=>graph.apiRepr()));
     })
