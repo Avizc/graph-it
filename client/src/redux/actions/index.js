@@ -56,7 +56,6 @@ export const setGraphToState = (graphObj) => ({
 
 export const saveGraph = (graphObj) => (dispatch) => {
   dispatch(handleLoading());
-  console.log(graphObj);
   const params = {
     method: 'POST',
     body: JSON.stringify(graphObj),
@@ -73,7 +72,8 @@ export const saveGraph = (graphObj) => (dispatch) => {
     return response.json()
   })
   .then(json => {
-    const url = `http://localhost:3000/posts/${json._id}`;
+    const url = `http://localhost:3000/posts#${json._id}`;
+    console.log(url);
     dispatch(handleSave(url))
   })
   .catch(error => {
