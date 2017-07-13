@@ -63,7 +63,7 @@ export const saveGraph = (graphObj) => (dispatch) => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
     }}
-  fetch('http://localhost:8080/api/graphs', params)
+  fetch('/api/graphs', params)
   .then(response => {
     if(!response.ok){
       return Promise.reject(response.statusText)
@@ -72,7 +72,7 @@ export const saveGraph = (graphObj) => (dispatch) => {
     return response.json()
   })
   .then(json => {
-    const url = `http://localhost:3000/posts#${json._id}`;
+    const url = `/posts#${json._id}`;
     dispatch(handleSavedUrl(url));
   })
   .catch(error => {
@@ -83,7 +83,7 @@ export const saveGraph = (graphObj) => (dispatch) => {
 
 export const handleGetByIdAndSetState = (id) => (dispatch) => {
   dispatch(handleLoading())
-  fetch(`http://localhost:8080/api/graphs/${id}`)
+  fetch(`/api/graphs/${id}`)
   .then(response => {
     if(!response.ok){
       Promise.reject(response.statusText)
