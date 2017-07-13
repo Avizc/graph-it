@@ -4,6 +4,6 @@ deploy:
   provider: heroku
   api_key:
     secure: lBO63URT26NvwKIdfNqpNOs+SHI4Sr4559AJE9xkalYMb6em2D36nmsisV+aPY5RK6Hvnvrxyo8n5VCGMHfMPwE/soElgzWfUFLBie3zbBGR0AUu2NkAPE7jSus/lakkBKa5zWCkK/t/TMW45tr0/c9mYlMhPOE2dhhl29b4YXHyZFLospme5uQCpF3zj5Z3apKUEgL9xZnyAq2gs0lU0z24H1VosWM3dg37DnFSKgaJxSCMqEIo9T65AScmMQSvOBgOY1UhyCGbvgM2ogvkOmlScRNbOESbVZH/fQUGdbQs4JhJO4+PvVi5D6jHEk48A+j13XGOV1w1ad7iZ1bxdBYF6FLEXQfX5FFFf96Hria5wFZe+0gZsmaBonGli5ZnvpUFX0XCV2pu/3ugCAWtmxTWmZbi6m4JC7Gu3fTOcIJjGf7QgbIQ2hfDDczAIVc/+JLdm6rwUKb9eMMpKKSFUi/DpOpz+FUFxqO0NtfNN+/2tl/Ul69lNnPMgIwucHRQCz1tGHa6y0UjOhmWgkv6nOemM+t32Rx2DfmWy/4iGkL/sTnjuE4i5mleLzP+9ehptoR0AwYEs8uQq9szdgm39n12jX+uysoed5SUvuTG+NdHlMcpSZE5/pQ0pBwcy7APl8HuKl0g3jVT4vJF9eCc2lfeKcGik42YrlDOIxzmZUI=
-  app: graph-it-avi-tanner
+  app: fast-brook-89568
   on:
     repo: thinkful-c11/graph-it-avi-tanner
