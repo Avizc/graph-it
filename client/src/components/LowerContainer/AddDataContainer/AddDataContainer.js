@@ -6,26 +6,20 @@ import './AddDataContainer.css';
 
 
 export class AddDataContainer extends React.Component{
-  if(this.props.isToggled){
-    this.AddDataButton = <AddDataButton />
-  }
 
   render(){
     if(this.props.isToggled){
+      this.AddDataInput = <AddDataInput />
+    };
       return(
         <div className="container">
           <AddDataButton />
-          <AddDataInput />
+          {this.AddDataInput}
         </div>
       );
-    }
-    return(
-      <div className="container">
-        <AddDataButton />
-      </div>
-    );
   }
 }
+
 
 const mapStateToProps = (state, props) => ({
   isToggled: state.newDataToggle
