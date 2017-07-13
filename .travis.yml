@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: 1QrGO2sSVXVe9yrkqcIkkR+GFiQ9DFEmUzJy97ekvvBMYeMhStchdUyqNNIFNo4UFJiidQv1RvQtieuIUu3xfyjvHhjrq6400p3tK/ComC/CvL9KjzYzPOzRlbPPHisWAkiqQ9G/qBR1O1kBWFdaqFAwr42muHpMPg9tINeFcIsNJkQSzclw+tEctArIrfe+LGNql2GH/FAiL2bgR3CeSw0SyrAwUjLk/CmX19IL9o65HYmBH8feQ01DGPJ+52tVUKTv29NKLw9cyf9JWIehN3aJAS1++t/P29KCPkeCUVhDDi423Lch2lG09CEYWC6b7ClSy/XZtVUmLPNo1nKpd+1UjbbXlB6FwIi2g5YlYtCX+zx/lwc15J6GxUcC8ToCkorpKH+Z7OxapTBKowfWil+KeCpdUrVUGjx1l/XHe85EJzfBbQiiaKxQa75jODxt8pg8vHWv4hxNPt9Hny2eZgcx9G1jh2ORBrXkGM9HIhX7LhqdmzbjorycSpiMovckBtMmFAmIqgcBU1K3AXJW4GhC4DdCLCkL7VW2ED+coqLEDD69M1+geOjbZ3wCNUXQzX3ddJ9zMU/sK0zy2H52iAjwI3DvC5oePD86SP/ifQjahT+0VrP+JuqOk8k/KLMswFmVDe+vyIAiPiYMh+yIfQX0FY8o8UnX7todlTcO90Y=
+  app: graph-it-avi-tanner
+  on:
+    repo: thinkful-c11/graph-it-avi-tanner
