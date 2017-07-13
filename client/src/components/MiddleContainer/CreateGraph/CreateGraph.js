@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './CreateGraph.css';
 import {handleNewGraph} from '../../../redux/actions';
-import {ToolTip} from '../ToolTip/ToolTip.js';
+import {ToolTip} from '../../ToolTip/ToolTip.js';
 
 export class CreateGraph extends React.Component{
   constructor(props){
