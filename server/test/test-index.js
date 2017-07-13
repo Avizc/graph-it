@@ -5,7 +5,7 @@ const faker=require('faker');
 const mongoose=require('mongoose');
 const {DATABASE_URL}=require('../config');
 const {app,runServer,closeServer}=require('../index');
-const {Graph}=require('../models');
+const {Graphs}=require('../models');
 chai.use(chaiHttp);
 // //graphTitle
 // function generateGraphTitle(){
@@ -105,7 +105,7 @@ function seedGraphData(){
             }]
         });
     }
-    return Graph.insertMany(seedGraph);
+    return Graphs.insertMany(seedGraph);
 }
 //Drop the database after each test
 function tearDownDatabase(){
@@ -147,7 +147,10 @@ describe('Graph',function(){
                 res.should.be.json;
                 res.body.should.be.a('array');
                 resGraphs=res.body[0];
-                return resGraphs.findById(resGraphs.id);
+                return Graphs.findById(resGraphs.id);
+            })
+            .then(function(res){
+                
             });
         });
     });
