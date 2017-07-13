@@ -72,7 +72,7 @@ export const saveGraph = (graphObj) => (dispatch) => {
     return response.json()
   })
   .then(json => {
-    const url = `/posts#${json._id}`;
+    const url = `https://fast-brook-89568.herokuapp.com/posts#${json._id}`;
     dispatch(handleSavedUrl(url));
   })
   .catch(error => {
