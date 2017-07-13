@@ -33,12 +33,6 @@ export const handleLoading = () => ({
   type: HANDLE_LOADING
 })
 
-export const HANDLE_SAVE = 'HANDLE_LOADING';
-export const handleSave = (feedback) => ({
-  type: HANDLE_SAVE,
-  feedback
-})
-
 export const HANDLE_ERROR = 'HANDLE_ERROR';
 export const handleError = (error) => ({
   type: HANDLE_ERROR,
@@ -81,7 +75,6 @@ export const saveGraph = (graphObj) => (dispatch) => {
     const url = `http://localhost:3000/posts#${json._id}`;
     console.log(url);
     dispatch(handleSavedUrl(url));
-    dispatch(handleSave(url))
   })
   .catch(error => {
     console.error(error)
