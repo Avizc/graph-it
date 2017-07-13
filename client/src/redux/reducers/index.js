@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
     case TOGGLE_NEW_DATA:
       return Object.assign({}, state, {newDataToggle: !state.newDataToggle})
     case RESET_GRAPH:
-      return Object.assign({}, state, initialState)
+      return Object.assign({}, state, initialState, {newGraphToggle: false, prefix: state.prefix, suffix: state.suffix, graphTitle: state.graphTitle})
     case HANDLE_ERROR:
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:
