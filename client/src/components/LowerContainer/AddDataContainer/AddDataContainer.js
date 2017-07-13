@@ -10,7 +10,9 @@ export class AddDataContainer extends React.Component{
   render(){
     if(this.props.isToggled){
       this.AddDataInput = <AddDataInput />
-    };
+    }else{
+      this.AddDataInput = undefined
+    }
       return(
         <div className="container">
           <AddDataButton />
