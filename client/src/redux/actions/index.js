@@ -73,7 +73,6 @@ export const saveGraph = (graphObj) => (dispatch) => {
   })
   .then(json => {
     const url = `http://localhost:3000/posts#${json._id}`;
-    console.log(url);
     dispatch(handleSavedUrl(url));
   })
   .catch(error => {

@@ -8,7 +8,6 @@ export class SaveButton extends React.Component{
 
   handleClick(e){
     e.preventDefault();
-    console.log('hello', store.getState());
     this.props.dispatch(saveGraph(store.getState()))
   }
 

@@ -7,10 +7,6 @@ import './AddDataContainer.css';
 
 export class AddDataContainer extends React.Component{
 
-  componentDidMount(){
-    console.log(this.props.isToggled)
-  }
-
   render(){
     if(this.props.isToggled){
       return(

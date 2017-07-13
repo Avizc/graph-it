@@ -9,11 +9,6 @@ export class GraphContainer extends React.Component{
     super(props)
   }
 
-  componentDidMount(){
-    console.log(this.props.graphName)
-    console.log('PREFIXX', this.props.prefix)
-  }
-
   render(){
     return(
       <section className="graph-container">
@@ -26,7 +21,6 @@ export class GraphContainer extends React.Component{
         />
         <VictoryAxis
           dependentAxis
-          // tickFormat specifies how ticks should be displayed
           tickFormat={(x) => (`${this.props.prefix}${x}${this.props.suffix}`)}
         />
       </VictoryChart>
