@@ -87,13 +87,11 @@ app.put("/api/graphs/:id", (req, res) => {
   const updateThisGraph = {};
   const updateGraph = [
     "graphTitle",
-    "indexValue",
-    "data",
-    "suffix",
+    "xLabel",
+    "yLabel",
     "prefix",
-    "columnName",
-    "xValueLabel",
-    "yValueLabel"
+    "suffix",
+    "graphData",
   ];
   updateGraph.forEach(graph => {
     if (req.body[graph]) {
