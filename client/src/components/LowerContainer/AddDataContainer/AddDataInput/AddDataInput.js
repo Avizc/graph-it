@@ -10,7 +10,8 @@ export class AddDataInput extends React.Component{
     this.state = {
       dataFeedback: false,
       columnNameFeedback: false,
-      cannotSubmit: false
+      cannotSubmit: false,
+      notLongEnough: false
     }
   }
 
@@ -18,7 +19,17 @@ export class AddDataInput extends React.Component{
     e.preventDefault()
     const data = this.dataValue.value;
     const columnName = this.columnName.value;
-    if(this.state.dataFeedback || this.state.columnNameFeedback){
+    if(columnName.length === 0){
+      this.setState({
+        notLongEnough: true
+      })
+    }else{
+      this.setState({
+        notLongEnough: false
+      })
+    }
+
+    if(this.state.dataFeedback || this.state.columnNameFeedback || !this.state.notLongEnough){
       this.setState({
         cannotSubmit: true
       })
@@ -55,6 +66,12 @@ export class AddDataInput extends React.Component{
   }
 
   render(){
+    if(this.state.notLongEnough){
+      this.notLongEnough = <InputFeedback feedback={'This input cannot be left blank.'} />
+    }else{
+      this.notLongEnough = undefined;
+    }
+
     if(this.state.dataFeedback){
       this.dataFeedback = <InputFeedback feedback={'This input must be a number.'}/>
     }else{
@@ -79,6 +96,7 @@ export class AddDataInput extends React.Component{
           {this.dataFeedback}
           <label>Column name:</label><input ref={(name) => this.columnName = name} onChange={(e) => this.handleNameChange(e)} type="text" placeholder="Quarter 3 earnings"></input>
           {this.nameFeedback}
+          {this.notLongEnough}
           <button onClick={(e) => this.handleSubmit(e)} type="submit">Submit</button>
           {this.cannotSubmit}
         </form>
