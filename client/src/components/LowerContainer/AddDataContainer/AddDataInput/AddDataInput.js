@@ -24,6 +24,8 @@ export class AddDataInput extends React.Component{
       })
     }else{
       this.props.dispatch(handleNewData(data, columnName))
+      this.dataValue.value = '';
+      this.columnName.value = '';
     }
   }
 

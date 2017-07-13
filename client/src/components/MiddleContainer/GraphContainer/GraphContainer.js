@@ -1,13 +1,13 @@
 import React from 'react';
-import {VictoryBar, VictoryChart, VictoryAxis} from 'victory';
+import {VictoryBar, VictoryChart, VictoryAxis, VictoryTheme} from 'victory';
 import {connect} from 'react-redux';
 import './GraphContainer.css';
-
 
 export class GraphContainer extends React.Component{
   constructor(props){
     super(props)
   }
+
 
   render(){
     return(
