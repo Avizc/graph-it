@@ -1,11 +1,11 @@
-import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE} from '../actions';
+import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL} from '../actions';
 
 const initialState = {
   graphData: [],
   graphTitle: '',
   prefix: '',
   suffix: '',
-  feedback: 'You have not saved yet',
+  feedback: "You have not saved your graph just yet. Click to save button when you've finished the graph.",
   newDataToggle: false,
   newGraphToggle: true
 };
@@ -27,9 +27,10 @@ export const reducer = (state = initialState, action) => {
     case HANDLE_ERROR:
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:
-      console.log(action)
       return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false});
-  default:
-    return state;
+    case HANDLE_SAVED_URL:
+      return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it. <strong>${action.url}</strong>`})
+    default:
+      return state;
   }
 }

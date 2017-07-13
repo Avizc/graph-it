@@ -54,6 +54,12 @@ export const setGraphToState = (graphObj) => ({
   suffix: graphObj.suffix
 })
 
+export const HANDLE_SAVED_URL = 'HANDLE_SAVED_URL';
+export const handleSavedUrl = (url) => ({
+  type: HANDLE_SAVED_URL,
+  url
+})
+
 export const saveGraph = (graphObj) => (dispatch) => {
   dispatch(handleLoading());
   const params = {
@@ -74,6 +80,7 @@ export const saveGraph = (graphObj) => (dispatch) => {
   .then(json => {
     const url = `http://localhost:3000/posts#${json._id}`;
     console.log(url);
+    dispatch(handleSavedUrl(url));
     dispatch(handleSave(url))
   })
   .catch(error => {
