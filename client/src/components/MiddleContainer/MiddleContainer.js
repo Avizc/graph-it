@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CreateGraph from './CreateGraph/CreateGraph.js';
+import GraphInfoContainer from './GraphInfoContainer/GraphInfoContainer.js';
 import GraphContainer from './GraphContainer/GraphContainer.js';
 import {handleGetByIdAndSetState} from '../../redux/actions';
 import './MiddleContainer.css'
@@ -24,6 +25,7 @@ export class MiddleContainer extends React.Component{
     }
     return(
       <section className="middle-container">
+        <GraphInfoContainer />
         <GraphContainer />
       </section>
     );

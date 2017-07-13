@@ -6,6 +6,7 @@ const initialState = {
   prefix: '',
   suffix: '',
   feedback: "You have not saved your graph just yet. Click to save button when you've finished the graph.",
+  url: null,
   newDataToggle: false,
   newGraphToggle: true
 };
@@ -27,7 +28,7 @@ export const reducer = (state = initialState, action) => {
     case SET_GRAPH_TO_STATE:
       return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false});
     case HANDLE_SAVED_URL:
-      return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it. <strong>${action.url}</strong>`})
+      return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it.`, url: action.url})
     default:
       return state;
   }

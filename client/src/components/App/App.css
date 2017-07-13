@@ -1,17 +1,30 @@
 h1{
   text-align: center;
   color: white;
-  line-height: 50vh;
   font-size: 4em;
   font-family: 'Lato';
-  margin: 0;
+  margin: auto;
+  margin-bottom: 10px;
 }
+h2{
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-family: 'Lato';
+  margin: auto;
+  margin-top: 10px;
+}
+
+
 header{
   height: 50vh;
   background-color: #5D5D81;
   margin: 0;
   margin-bottom: 50px;
-  border-bottom: 6px solid #6e6e99
+  border-bottom: 6px solid #6e6e99;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 body{

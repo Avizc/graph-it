@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {toggleNewData} from '../../../../redux/actions';
 
+
 export class AddPointButton extends React.Component{
 
   handelClick(e){

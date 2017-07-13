@@ -10,8 +10,8 @@ export function LowerContainer(props){
   }
   return(
     <section className="lower-container">
-      <AddDataContainer />
-      <SaveButton />
+        <AddDataContainer />
+        <SaveButton />
     </section>
   );
 }

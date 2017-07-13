@@ -10,6 +10,7 @@ export class App extends React.Component{
     <section>
       <header>
         <h1>Graph.it</h1>
+        <h2>Making it easier than ever to graph.</h2>
       </header>
       <section>
         <UpperContainer />
