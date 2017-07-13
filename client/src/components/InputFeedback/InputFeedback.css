@@ -1,3 +1,10 @@
 .input-feedback{
-  background-color: rgb(red, 0, 0, .3);
+  background-color: rgba(255, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 3px;
+  color: white;
+  font-family: 'Lato';
+  font-weight: 600;
+  margin: 15px;
+  text-align: center;
 }
