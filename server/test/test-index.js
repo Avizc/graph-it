@@ -149,6 +149,7 @@ describe('Graph',function(){
                 resGraphs=res.body[0];
                 return Graphs.findById(resGraphs.id);
             })
+            // Finish this!
             .then(function(res){
                 
             });
