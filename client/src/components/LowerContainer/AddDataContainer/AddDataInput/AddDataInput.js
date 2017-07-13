@@ -9,7 +9,8 @@ export class AddDataInput extends React.Component{
     super(props)
     this.state = {
       dataFeedback: false,
-      columnNameFeedback: false
+      columnNameFeedback: false,
+      cannotSubmit: false
     }
   }
 
@@ -17,7 +18,13 @@ export class AddDataInput extends React.Component{
     e.preventDefault()
     const data = this.dataValue.value;
     const columnName = this.columnName.value;
-    this.props.dispatch(handleNewData(data, columnName))
+    if(this.state.dataFeedback || this.state.columnNameFeedback){
+      this.setState({
+        cannotSubmit: true
+      })
+    }else{
+      this.props.dispatch(handleNewData(data, columnName))
+    }
   }
 
   handleDataChange(e){
@@ -25,7 +32,6 @@ export class AddDataInput extends React.Component{
     if(isNaN(Number(e.target.value))){
       this.setState({
         dataFeedback: true,
-        columnNameFeedback: false
       })
     }else{
       this.setState({
@@ -37,8 +43,11 @@ export class AddDataInput extends React.Component{
   handleNameChange(e){
     if(e.target.value.length > 15){
       this.setState({
-        dataFeedback: false,
         columnNameFeedback: true
+      })
+    }else{
+      this.setState({
+        columnNameFeedback: false
       })
     }
   }
@@ -52,6 +61,14 @@ export class AddDataInput extends React.Component{
 
     if(this.state.columnNameFeedback){
       this.nameFeedback = <InputFeedback feedback={'Just a little warning: column names should be kept short and sweet.'} />
+    }else{
+      this.nameFeedback = undefined;
+    }
+
+    if(this.state.cannotSubmit){
+      this.cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
+    }else{
+      this.cannotSubmit = undefined;
     }
     return(
       <div className="input-container">
@@ -61,6 +78,7 @@ export class AddDataInput extends React.Component{
           <label>Column name:</label><input ref={(name) => this.columnName = name} onChange={(e) => this.handleNameChange(e)} type="text" placeholder="Quarter 3 earnings"></input>
           {this.nameFeedback}
           <button onClick={(e) => this.handleSubmit(e)} type="submit">Submit</button>
+          {this.cannotSubmit}
         </form>
       </div>
     );
