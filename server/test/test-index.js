@@ -1,90 +1,111 @@
 const chai=require('chai');
 const should=require('chai').should();
 const chaiHttp=require('chai-http');
+const faker=require('faker');
 const mongoose=require('mongoose');
 const {DATABASE_URL}=require('../config');
 const {app,runServer,closeServer}=require('../index');
 const {Graph}=require('../models');
 chai.use(chaiHttp);
-//Seed in data for the graph
+// //graphTitle
+// function generateGraphTitle(){
+//     const title=[
+//         'Rabbits','Cheesecake Quality','Tea Supplies','Cards'
+//     ];
+//     return title[Math.floor(Math.random()*title.length)];
+// }
+// //xLabel
+// function generateXLabel(){
+//     const xLabel=[
+//         'Cheesecake','Rabbits','Tea Cups','Cards'
+//     ];
+//     return xLabel[Math.floor(Math.random()*xLabel.length)];
+// }
+// //yLabel
+// function generateYLabel(){
+//     const yLabel=[
+//         'Amount of cheesecake','Total Cost of Tea','Cards purchased','Carrots for event'
+//     ];
+//     return yLabel[Math.floor(Math.random()*yLabel.length)];
+// }
+// //prefix
+// function generatePrefix(){
+//     const prefix=[
+//         '$','#'
+//     ];
+//     return prefix[Math.floor(Math.random()*prefix.length)];
+// }
+// //suffix
+// function generateSuffix(){
+//     const suffix=[
+//         'k','m',''
+//     ];
+//     return suffix[Math.floor(Math.random()*suffix.length)];
+// }
+// //index
+// function generateIndex(){
+//     const index=[
+//         0,1,2,3,4
+//     ];
+//     return index[Math.floor(Math.random()*index.length)];
+// }
+// //data
+// function generateData(){
+//     const data=[
+//         2,3,5,7,11
+//     ];
+//     return data[Math.floor(Math.random()*data.length)];
+// }
+// //columnName
+// function generateColumnName(){
+//     const columnName=[
+//         'Alice','Rabbit','Food','Tea'
+//     ];
+//     return columnName[Math.floor(Math.random()*columnName.length)];
+// }
+// //All of the functions go here to make the graphs
+// function generateGraphData(){
+//     return {
+//         graphTitle: generateGraphTitle(),
+//         xLabel: generateXLabel(),
+//         yLabel: generateYLabel(),
+//         prefix: generatePrefix(),
+//         suffix: generateSuffix(),
+//         graphData:[{
+//             index: generateIndex(),
+//             data: generateData(),
+//             columnName: generateColumnName()
+//         }]
+//     };
+// }
+// //Seed in data for the graph
+// function seedGraphData(){
+//     console.info('Seeding graph data');
+//     let seedGraph={};
+//     for(let i=1;i<=10;i++){
+//         seedGraph.push(generateGraphData());
+//     }
+//     return Graph.insertMany(seedGraph);
+// }
+//Seed data for graph with faker
 function seedGraphData(){
     console.info('Seeding graph data');
     const seedGraph=[];
     for(let i=1;i<=10;i++){
-        seedGraph.push(generateGraphData());
+        seedGraph.push({
+            graphTitle: faker.random.word(),
+            xLabel: faker.random.word(),
+            yLabel: faker.random.word(),
+            prefix: faker.finance.currencySymbol(),
+            suffix: faker.random.word(),
+            graphData:[{
+                index: faker.random.number(),
+                data: faker.random.number(),
+                columnName: faker.random.word()
+            }]
+        });
     }
     return Graph.insertMany(seedGraph);
-}
-//graphTitle
-function generateGraphTitle(){
-    const title=[
-        'Rabbits','Cheesecake Quality','Tea Supplies','Cards'
-    ];
-    return title[Math.floor(Math.random()*title.length)];
-}
-//xLabel
-function generateXLabel(){
-    const xLabel=[
-        'Cheesecake','Rabbits','Tea Cups','Cards'
-    ];
-    return xLabel[Math.floor(Math.random()*xLabel.length)];
-}
-//yLabel
-function generateYLabel(){
-    const yLabel=[
-        'Amount of cheesecake','Total Cost of Tea','Cards purchased','Carrots for event'
-    ];
-    return yLabel[Math.floor(Math.random()*yLabel.length)];
-}
-//prefix
-function generatePrefix(){
-    const prefix=[
-        '$','#'
-    ];
-    return prefix[Math.floor(Math.random()*prefix.length)];
-}
-//suffix
-function generateSuffix(){
-    const suffix=[
-        'k','m',''
-    ];
-    return suffix[Math.floor(Math.random()*suffix.length)];
-}
-//index
-function generateIndex(){
-    const index=[
-        0,1,2,3,4
-    ];
-    return index[Math.floor(Math.random()*index.length)];
-}
-//data
-function generateData(){
-    const data=[
-        2,3,5,7,11
-    ];
-    return data[Math.floor(Math.random()*data.length)];
-}
-//columnName
-function generateColumnName(){
-    const columnName=[
-        'Alice','Rabbit','Food','Tea'
-    ];
-    return columnName[Math.floor(Math.random()*columnName.length)];
-}
-//All of the functions go here to make the graphs
-function generateGraphData(){
-    return {
-        graphTitle: generateGraphTitle(),
-        xLabel: generateXLabel(),
-        yLabel: generateYLabel(),
-        prefix: generatePrefix(),
-        suffix: generateSuffix(),
-        graphData:[{
-            index: generateIndex(),
-            data: generateData(),
-            columnName: generateColumnName()
-        }]
-    };
 }
 //Drop the database after each test
 function tearDownDatabase(){
@@ -113,13 +134,23 @@ describe('Graph',function(){
             .then(function(_res){
                 res=_res;
                 res.should.has.status(200);
-                return Graph.count();
-            })
-            .then(function(count){
-                res.body.should.have.length.of(count);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        })
+        it('Should return the graph by ID',function(){
+            let resGraphs;
+            return chai.request(app)
+            .get('/api/graphs/:id')
+            .then(function(res){
+                res.should.has.status(200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+                resGraphs=res.body[0];
+                return resGraphs.findById(resGraphs.id);
             });
         });
-    })
+    });
     // it('Should show the graph',function(){
     //     return chai.request(app)
     //     .get('/api')
