@@ -6,6 +6,9 @@ import './AddDataContainer.css';
 
 
 export class AddDataContainer extends React.Component{
+  if(this.props.isToggled){
+    this.AddDataButton = <AddDataButton />
+  }
 
   render(){
     if(this.props.isToggled){
