@@ -26,8 +26,5 @@
     "http-proxy-middleware": "^0.17.3",
     "npm-run-all": "^4.0.1",
     "xp": "^1.0.1"
-  },
-  "devDependencies": {
-    "mongoose": "^4.11.1"
   }
 }

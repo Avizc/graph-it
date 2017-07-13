@@ -11,16 +11,16 @@
   "license": "MIT",
   "dependencies": {
     "dot-env": "^0.0.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "mongoose": "^4.11.1",
+    "express": "^4.15.3",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0"
   },
   "devDependencies": {
-    "body-parser": "^1.17.2",
     "chai": "^4.1.0",
     "chai-http": "^3.0.0",
-    "dotenv": "^4.0.0",
-    "express": "^4.15.3",
     "faker": "^4.1.0",
-    "mocha": "^3.4.2",
-    "mongoose": "^4.11.1"
+    "mocha": "^3.4.2"
   }
 }
