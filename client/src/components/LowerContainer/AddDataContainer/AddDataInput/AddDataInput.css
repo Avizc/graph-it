@@ -13,5 +13,11 @@
 }
 
 input{
-  margin: 8px 0;
+  margin: 8px auto;
+  width: 100%;
+}
+
+.submit-button{
+  padding: 10px;
+  font-size: 15px;
 }

@@ -1,5 +1,4 @@
 .upper-container{
   display: flex;
-  justify-content: flex-end;
-  margin-right: 15vw;
+  justify-content: space-around;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import SaveButton from './SaveButton/SaveButton.js'; 
 import AddDataContainer from './AddDataContainer/AddDataContainer.js';
 import {connect} from 'react-redux';
 import './LowerContainer.css';
@@ -11,7 +10,6 @@ export function LowerContainer(props){
   return(
     <section className="lower-container">
         <AddDataContainer />
-        <SaveButton />
     </section>
   );
 }
