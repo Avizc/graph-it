@@ -9,7 +9,6 @@ export class AddLineDataInput extends React.Component{
     super(props)
     this.state = {
       yFeedback: false,
-      xFeedback: false,
       cannotSubmit: false
     }
   }
@@ -17,15 +16,13 @@ export class AddLineDataInput extends React.Component{
   handleSubmit(e){
     e.preventDefault()
     const yValue = this.yValue.value;
-    const xValue = this.xValue.value;
-    if(this.state.yFeedback || this.state.xFeedback){
+    if(this.state.xFeedback){
       this.setState({
         cannotSubmit: true
       })
     }else{
-      this.props.dispatch(handleNewLineData(xValue, yValue))
+      this.props.dispatch(handleNewLineData(yValue))
       this.yValue.value = '';
-      this.xValue.value = '';
     }
   }
 
@@ -42,26 +39,8 @@ export class AddLineDataInput extends React.Component{
     }
   }
 
-  handleXChange(e){
-    console.log(Number(e.target.value))
-    if(isNaN(Number(e.target.value))){
-      this.setState({
-        xFeedback: true,
-      })
-    }else{
-      this.setState({
-        xFeedback: false
-      })
-    }
-  }
-
 
   render(){
-    if(this.state.yFeedback){
-      this.yFeedback = <InputFeedback feedback={'This input must be a number.'} />
-    }else{
-      this.yFeedback = '';
-    }
     if(this.state.xFeedback){
       this.xFeedback = <InputFeedback feedback={'This input must be a number.'}/>
     }else{
@@ -76,10 +55,8 @@ export class AddLineDataInput extends React.Component{
     return(
       <div className="input-container">
         <form className="inputForm">
-          <label>X Value:</label><input ref={(xValue) => this.xValue = xValue} onChange={(e) => this.handleYChange(e)} type="text" placeholder="4"></input>
+          <label>Add a point:</label><input ref={(xValue) => this.xValue = xValue} onChange={(e) => this.handleYChange(e)} type="text" placeholder="4"></input>
           {this.yFeedback}
-          <label>Y Value:</label><input ref={(yValue) => this.yValue = yValue} onChange={(e) => this.handleXChange(e)} type="text" placeholder="10"></input>
-          {this.xFeedback}
           <button onClick={(e) => this.handleSubmit(e)} type="submit" className="submit-button">Submit</button>
           {this.cannotSubmit}
         </form>
