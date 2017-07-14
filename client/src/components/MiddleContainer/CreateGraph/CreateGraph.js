@@ -75,7 +75,7 @@ export class CreateGraph extends React.Component{
         <h3>Let's make a graph.</h3>
         <section className="create-graph">
           <form>
-            <label>Graph Title</label><input ref={(value) => this.graphTitle = value} onChange={(e)=> this.handleTitleChange(e)} type="text" placeholder="Sales Reports"></input>
+            <label htmlFor="graphTitle">Graph Title</label><input id="graphTitle" ref={(value) => this.graphTitle = value} onChange={(e)=> this.handleTitleChange(e)} type="text" placeholder="Sales Reports"></input>
             {this.titleToolTip}
             <label>Graph Prefix</label><input ref={(value)=> this.graphPrefix = value} onChange={(e)=> this.handlePrefixChange(e)} type="text" placeholder="$"></input>
             {this.prefixToolTip}

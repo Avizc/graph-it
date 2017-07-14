@@ -87,6 +87,7 @@ export class AddDataInput extends React.Component{
     if(this.state.cannotSubmit){
       this.cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
     }else{
+      // <InputFeedback>Make sure both inputs are valid before submitting.</InputFeedback>
       this.cannotSubmit = undefined;
     }
     return(

@@ -12,11 +12,7 @@ export class AddPointButton extends React.Component{
 
   render(){
     return(
-<<<<<<< HEAD
       <button onClick={(e)=> this.handelClick(e)} id="AddDataButton" className="AddDataButton">Add Data</button>
-=======
-      <button onClick={(e)=> this.handleClick(e)} id="AddDataButton" className="AddDataButton">Add data</button>
->>>>>>> test
     );
   }
 }
