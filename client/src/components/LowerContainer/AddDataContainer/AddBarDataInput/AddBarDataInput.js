@@ -66,40 +66,35 @@ export class AddDataInput extends React.Component{
   }
 
   render(){
+    let notLongEnough;
+    let dataFeedback;
+    let nameFeedback;
+    let cannotSubmit;
     if(this.state.notLongEnough){
-      this.notLongEnough = <InputFeedback feedback={'This input cannot be left blank.'} />
-    }else{
-      this.notLongEnough = undefined;
+      notLongEnough = <InputFeedback feedback={'This input cannot be left blank.'} />
     }
-
     if(this.state.dataFeedback){
-      this.dataFeedback = <InputFeedback feedback={'This input must be a number.'}/>
-    }else{
-      this.dataFeedback = undefined
+      dataFeedback = <InputFeedback feedback={'This input must be a number.'}/>
     }
 
     if(this.state.columnNameFeedback){
-      this.nameFeedback = <InputFeedback feedback={'Just a little warning: column names should be kept short and sweet.'} />
-    }else{
-      this.nameFeedback = undefined;
+      nameFeedback = <InputFeedback feedback={'Just a little warning: column names should be kept short and sweet.'} />
     }
 
     if(this.state.cannotSubmit){
-      this.cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
-    }else{
-      // <InputFeedback>Make sure both inputs are valid before submitting.</InputFeedback>
-      this.cannotSubmit = undefined;
+      cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
     }
+
     return(
       <div className="input-container">
         <form className="inputForm">
           <label>Column data:</label><input ref={(dataValue) => this.dataValue = dataValue} onChange={(e) => this.handleDataChange(e)} type="text" placeholder="240k"></input>
-          {this.dataFeedback}
+          {dataFeedback}
           <label>Column name:</label><input ref={(name) => this.columnName = name} onChange={(e) => this.handleNameChange(e)} type="text" placeholder="Quarter 3 earnings"></input>
-          {this.nameFeedback}
-          {this.notLongEnough}
+          {nameFeedback}
+          {notLongEnough}
           <button onClick={(e) => this.handleSubmit(e)} type="submit" className="submit-button">Submit</button>
-          {this.cannotSubmit}
+          {cannotSubmit}
         </form>
       </div>
     );
