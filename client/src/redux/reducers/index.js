@@ -9,7 +9,8 @@ const initialState = {
   url: null,
   newDataToggle: false,
   newGraphToggle: true,
-  linkView: false
+  linkView: false,
+  graphType: 'BAR'
 };
 
 export const reducer = (state = initialState, action) => {
