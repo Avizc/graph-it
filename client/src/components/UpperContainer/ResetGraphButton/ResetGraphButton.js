@@ -1,5 +1,5 @@
 import React from 'react';
-import {resetGraph} from '../../../redux/actions';
+import {resetGraph, resetLineGraph} from '../../../redux/actions';
 import {connect} from 'react-redux';
 import './ResetGraphButton.css';
 
@@ -7,7 +7,11 @@ export class ResetGraphButton extends React.Component{
 
   handleClick(e){
     e.preventDefault();
+    if(this.props.graphType === 'BAR'){
     this.props.dispatch(resetGraph())
+    }else if(this.props.graphType === 'LINE'){
+    this.props.dispatch(resetLineGraph());
+    }
   }
 
   render(){
@@ -16,5 +20,9 @@ export class ResetGraphButton extends React.Component{
     );
   }
 }
+
+const mapStateToProps = (state, props) => ({
+  graphType: state.graphType
+})
 
 export default connect()(ResetGraphButton);

@@ -55,7 +55,7 @@ export class AddLineDataInput extends React.Component{
     return(
       <div className="input-container">
         <form className="inputForm">
-          <label>Add a point:</label><input ref={(xValue) => this.xValue = xValue} onChange={(e) => this.handleYChange(e)} type="text" placeholder="4"></input>
+          <label>Add a point:</label><input ref={(yValue) => this.yValue = yValue} onChange={(e) => this.handleYChange(e)} type="text" placeholder="4"></input>
           {this.yFeedback}
           <button onClick={(e) => this.handleSubmit(e)} type="submit" className="submit-button">Submit</button>
           {this.cannotSubmit}

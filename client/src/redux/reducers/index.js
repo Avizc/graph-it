@@ -1,4 +1,4 @@
-import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL, HANDLE_GRAPH_TYPE_CHANGE, HANDLE_NEW_LINE_DATA} from '../actions';
+import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL, HANDLE_GRAPH_TYPE_CHANGE, RESET_LINE_GRAPH, HANDLE_NEW_LINE_DATA} from '../actions';
 
 const initialState = {
   graphData: [],
@@ -25,6 +25,8 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {newDataToggle: !state.newDataToggle})
     case RESET_GRAPH:
       return Object.assign({}, state, initialState, {newGraphToggle: false, prefix: state.prefix, suffix: state.suffix, graphTitle: state.graphTitle})
+    case RESET_LINE_GRAPH:
+      return Object.assign({}. state, initialState, {graphType: 'LINE'})
     case HANDLE_ERROR:
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:
@@ -34,7 +36,7 @@ export const reducer = (state = initialState, action) => {
     case HANDLE_GRAPH_TYPE_CHANGE:
       return Object.assign({}, state, {graphType: action.graphType})
     case HANDLE_NEW_LINE_DATA:
-      return Object.assign({}, state, {graphData: [...state.graphData, {x: action.x, y: action.x}]})
+      return Object.assign({}, state, {graphData: [...state.graphData, {x: state.graphData.length + 1, y: action.y}]})
     default:
       return state;
   }

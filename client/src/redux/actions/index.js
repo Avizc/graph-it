@@ -7,9 +7,8 @@ export const handleNewData = (data, columnName) => ({
 });
 
 export const HANDLE_NEW_LINE_DATA = 'HANDLE_NEW_LINE_DATA';
-export const handleNewLineData = (x, y) => ({
+export const handleNewLineData = (y) => ({
   type: HANDLE_NEW_LINE_DATA,
-  x,
   y
 }) 
 
@@ -30,6 +29,11 @@ export const RESET_GRAPH = 'RESET_GRAPH';
 export const resetGraph = () => ({
   type: RESET_GRAPH
 });
+
+export const RESET_LINE_GRAPH = 'RESET_LINE_GRAPH';
+export const resetLineGraph = () => ({
+  type: RESET_LINE_GRAPH
+})
 
 export const NEW_GRAPH = 'NEW_GRAPH';
 export const newGraph = () => ({
