@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow,mount} from 'enzyme';
-import AddDataInput from './AddDataInput.js';
+import {AddDataInput} from './AddDataInput.js';
 describe('<AddDataInput />',()=>{
     it('Render without crashing!',()=>{
         shallow(<AddDataInput />);
