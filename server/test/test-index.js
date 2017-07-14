@@ -149,9 +149,12 @@ describe('Graph',function(){
                 resGraphs=res.body[0];
                 return Graphs.findById(resGraphs.id);
             })
+<<<<<<< Updated upstream
             // Finish this!
             .then(function(res){
                 //Quick edit for later
+=======
+>>>>>>> Stashed changes
             .then(function(res){
                 
             });
