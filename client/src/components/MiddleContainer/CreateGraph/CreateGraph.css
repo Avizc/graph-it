@@ -47,7 +47,7 @@ label{
 }
 
 /* iPad */
-@media (min-width: 426px) and (max-width: 780px) {
+@media (min-width: 426px) and (max-width: 1200px) {
   .create-graph{
     width: 80vw;
   }

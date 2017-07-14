@@ -6,7 +6,7 @@ export class GraphInfoContainer extends React.Component{
 
   render(){
     if(this.props.url !== null){
-      this.url = <h4><strong>{this.props.url}</strong></h4>
+      this.url = <h4 className="graph-feedback"><strong>{this.props.url}</strong></h4>
     }else{
       this.url = undefined;
     }

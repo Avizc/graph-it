@@ -8,7 +8,8 @@ const initialState = {
   feedback: "You have not saved your graph just yet. Click to save button when you've finished the graph.",
   url: null,
   newDataToggle: false,
-  newGraphToggle: true
+  newGraphToggle: true,
+  linkView: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -26,7 +27,7 @@ export const reducer = (state = initialState, action) => {
     case HANDLE_ERROR:
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:
-      return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false});
+      return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false, linkView: true});
     case HANDLE_SAVED_URL:
       return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it.`, url: action.url})
     default:

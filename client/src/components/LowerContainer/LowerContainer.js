@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import './LowerContainer.css';
 
 export function LowerContainer(props){
-  if(props.newGraph){
+  if(props.newGraph || props.linkView){
     return null
   }
   return(
@@ -15,7 +15,8 @@ export function LowerContainer(props){
 }
 
 const mapStateToProps = (state, actions) => ({
-  newGraph: state.newGraphToggle
+  newGraph: state.newGraphToggle,
+  linkView: state.linkView
 })
 
 export default connect(mapStateToProps)(LowerContainer);

@@ -69,3 +69,9 @@ button{
     font-size: 24px;
   }
 }
+
+@media (min-width: 785px) and (max-width: 1200px) {
+  h1{
+    font-size: 8em;
+  }
+}

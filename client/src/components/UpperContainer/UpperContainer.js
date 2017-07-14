@@ -6,7 +6,7 @@ import SaveButton from './SaveButton/SaveButton.js';
 import './UpperContainer.css';
 
 export function UpperContainer(props){
-  if(props.newGraph){
+  if(props.newGraph || props.linkView){
     return null;
   }else{
   return(
@@ -20,7 +20,8 @@ export function UpperContainer(props){
 }
 
 const mapStateToProps = (state, actions) => ({
-  newGraph: state.newGraphToggle
+  newGraph: state.newGraphToggle,
+  linkView: state.linkView
 })
 
 export default connect(mapStateToProps)(UpperContainer);
