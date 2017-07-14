@@ -54,6 +54,12 @@ export const handleSavedUrl = (url) => ({
   url
 })
 
+export const HANDLE_GRAPH_TYPE_CHANGE = 'HANDLE_GRAPH_TYPE_CHANGE';
+export const handleGraphTypeChange = (graphType) => ({
+  type: HANDLE_GRAPH_TYPE_CHANGE,
+  graphType
+}) 
+
 export const saveGraph = (graphObj) => (dispatch) => {
   dispatch(handleLoading());
   const params = {

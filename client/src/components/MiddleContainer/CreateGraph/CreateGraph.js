@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './CreateGraph.css';
-import {handleNewGraph} from '../../../redux/actions';
+import {handleNewGraph, handleGraphTypeChange} from '../../../redux/actions';
 import {ToolTip} from '../../ToolTip/ToolTip.js';
 import BarGraphInput from './BarGraphInput/BarGraphInput.js';
 
@@ -9,7 +9,9 @@ export class CreateGraph extends React.Component{
 
   handleChange(e){
     e.preventDefault();
-    console.log(e.target.value)
+    const graphType = e.target.value;
+    console.log(graphType)
+    this.props.dispatch(handleGraphTypeChange(graphType))
   }
 
   render(){
@@ -25,8 +27,8 @@ export class CreateGraph extends React.Component{
         <h3>Let's make a graph.</h3>
         <section className="create-graph">
           <form className="radio-buttons">
-            <label htmlFor="BAR">Bar Graph<input onChange={(e)=> this.handleChange(e)} id="BAR" type="radio" name="BAR" value="BAR"></input></label>
-            <label htmlFor="LINE">Line Graph<input onChange={(e)=> this.handleChange(e)} id="LINE" type="radio" name="LINE" value="LINE"></input></label>
+            <label htmlFor="BAR">Bar Graph<input onClick={(e)=> this.handleChange(e)} id="BAR" type="radio" name="graphType" value="BAR"></input></label>
+            <label htmlFor="LINE">Line Graph<input onClick={(e)=> this.handleChange(e)} id="LINE" type="radio" name="graphType" value="LINE"></input></label>
           </form>
           {barGraphInput}
         </section>

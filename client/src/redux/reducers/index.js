@@ -1,4 +1,4 @@
-import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL} from '../actions';
+import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL, HANDLE_GRAPH_TYPE_CHANGE} from '../actions';
 
 const initialState = {
   graphData: [],
@@ -31,6 +31,8 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false, linkView: true});
     case HANDLE_SAVED_URL:
       return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it.`, url: action.url})
+    case HANDLE_GRAPH_TYPE_CHANGE:
+      return Object.assign({}, state, {graphType: action.graphType})
     default:
       return state;
   }
