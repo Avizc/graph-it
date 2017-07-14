@@ -4,6 +4,7 @@ import './CreateGraph.css';
 import {handleNewGraph, handleGraphTypeChange} from '../../../redux/actions';
 import {ToolTip} from '../../ToolTip/ToolTip.js';
 import BarGraphInput from './BarGraphInput/BarGraphInput.js';
+import LineGraphInput from './LineGraphInput/LineGraphInput.js';
 
 export class CreateGraph extends React.Component{
 
@@ -17,9 +18,12 @@ export class CreateGraph extends React.Component{
   render(){
     //GRAPH TYPE CONDITIONALS
     let barGraphInput;
+    let lineGraphInput;
     console.log(this.props.graphType)
     if(this.props.graphType === 'BAR'){
       barGraphInput = <BarGraphInput />
+    } else if (this.props.graphType === 'LINE'){
+      lineGraphInput = <LineGraphInput />
     }
 
     return(
@@ -31,6 +35,7 @@ export class CreateGraph extends React.Component{
             <label htmlFor="LINE">Line Graph<input onClick={(e)=> this.handleChange(e)} id="LINE" type="radio" name="graphType" value="LINE"></input></label>
           </form>
           {barGraphInput}
+          {lineGraphInput}
         </section>
       </section>
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from "victory";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryLine} from "victory";
 import { connect } from "react-redux";
 import "./GraphContainer.css";
 
@@ -25,6 +25,12 @@ export class GraphContainer extends React.Component {
               />
             </VictoryChart>
           </section>
+        );
+    case 'LINE':
+        return(
+          <VictoryChart>
+            <VictoryLine data={[{x: 1, y: 10},{x: 8, y: 15},{x: 4, y: 20}]}></VictoryLine>
+          </VictoryChart>
         );
       }
     }
