@@ -5,14 +5,18 @@ import {toggleNewData} from '../../../../redux/actions';
 
 export class AddPointButton extends React.Component{
 
-  handelClick(e){
+  handleClick(e){
     e.preventDefault();
     this.props.dispatch(toggleNewData())
   }
 
   render(){
     return(
+<<<<<<< HEAD
       <button onClick={(e)=> this.handelClick(e)} id="AddDataButton" className="AddDataButton">Add Data</button>
+=======
+      <button onClick={(e)=> this.handleClick(e)} id="AddDataButton" className="AddDataButton">Add data</button>
+>>>>>>> test
     );
   }
 }
