@@ -7,8 +7,12 @@ import BarGraphInput from './BarGraphInput/BarGraphInput.js';
 
 export class CreateGraph extends React.Component{
 
-  render(){
+  handleChange(e){
+    e.preventDefault();
+    console.log(e.target.value)
+  }
 
+  render(){
     //GRAPH TYPE CONDITIONALS
     let barGraphInput;
     console.log(this.props.graphType)
@@ -20,6 +24,10 @@ export class CreateGraph extends React.Component{
       <section>
         <h3>Let's make a graph.</h3>
         <section className="create-graph">
+          <form className="radio-buttons">
+            <label htmlFor="BAR">Bar Graph<input onChange={(e)=> this.handleChange(e)} id="BAR" type="radio" name="BAR" value="BAR"></input></label>
+            <label htmlFor="LINE">Line Graph<input onChange={(e)=> this.handleChange(e)} id="LINE" type="radio" name="LINE" value="LINE"></input></label>
+          </form>
           {barGraphInput}
         </section>
       </section>
