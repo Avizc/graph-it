@@ -74,13 +74,13 @@ describe('handleError',()=>{
 })
 describe('setGraphToState',()=>{
     it('Should return an action!',()=>{
-        //const graphData=; CURRENTLY BROKE FIX IT LATER
+        const graphData=[{index:3,data:5,columnName:'Tea'}];
         const graphTitle='Alice in Wonderland';
         const prefix='$';
         const suffix='k';
-        const action=setGraphToState();
+        const action=setGraphToState({graphData,graphTitle,prefix,suffix});
         expect(action.type).toEqual(SET_GRAPH_TO_STATE);
-        //expect(action.graphData).toEqual(graphData); FIX THIS
+        expect(action.graphData).toEqual(graphData);
         expect(action.graphTitle).toEqual(graphTitle);
         expect(action.prefix).toEqual(prefix);
         expect(action.suffix).toEqual(suffix);
