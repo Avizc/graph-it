@@ -29,7 +29,7 @@ export class AddDataInput extends React.Component{
       })
     }
 
-    if(this.state.dataFeedback || this.state.columnNameFeedback || !this.state.notLongEnough){
+    if(this.state.dataFeedback || this.state.columnNameFeedback || this.state.notLongEnough){
       this.setState({
         cannotSubmit: true
       })
@@ -54,7 +54,7 @@ export class AddDataInput extends React.Component{
   }
 
   handleNameChange(e){
-    if(e.target.value.length > 15){
+    if(e.target.value.length > 12){
       this.setState({
         columnNameFeedback: true
       })

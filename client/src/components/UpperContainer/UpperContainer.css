@@ -1,19 +1,4 @@
 .upper-container{
   display: flex;
-  justify-content: flex-end;
-  margin-right: 15vw;
-}
-
-@media (max-width: 425px) {
- .upper-container{
-   justify-content: space-around;
-   margin-right: 0;
- }
-}
-
-@media (min-width: 426px) and (max-width: 780px) {
- .upper-container{
-   justify-content: space-around;
-   margin-right: 0;
- }
+  justify-content: space-around;
 }

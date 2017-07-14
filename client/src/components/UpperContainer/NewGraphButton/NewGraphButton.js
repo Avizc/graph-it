@@ -10,9 +10,6 @@ export class NewGraphButton extends React.Component{
   }
 
   render(){
-    if(this.props.newGraph){
-      return null;
-    }
     return(
       <button onClick={(e)=> this.handleClick(e)}>Start Over</button>
     );
