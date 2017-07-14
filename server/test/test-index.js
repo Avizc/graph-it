@@ -138,6 +138,7 @@ describe('Graph',function(){
                 res.body.should.be.a('array');
             });
         })
+        //TEST FOR ID
         it('Should return the graph by ID',function(){
             let resGraphs;
             return chai.request(app)
@@ -149,12 +150,6 @@ describe('Graph',function(){
                 resGraphs=res.body[0];
                 return Graphs.findById(resGraphs.id);
             })
-<<<<<<< Updated upstream
-            // Finish this!
-            .then(function(res){
-                //Quick edit for later
-=======
->>>>>>> Stashed changes
             .then(function(res){
                 
             });
