@@ -8,9 +8,7 @@ export class LineGraphInput extends React.Component{
     constructor(props){
     super(props);
     this.state = {
-      titleToolTip: false,
-      prefixToolTip: false,
-      suffixToolTip: false
+      titleToolTip: false
     }
   }
 
@@ -18,8 +16,8 @@ export class LineGraphInput extends React.Component{
     e.preventDefault();
     const newGraph = {
       title: this.graphTitle.value,
-      suffix: this.graphSuffix.value,
-      prefix: this.graphPrefix.value
+      suffix: undefined,
+      prefix: undefined
     }
     this.props.dispatch(handleNewGraph(newGraph.title, newGraph.suffix, newGraph.prefix))
   }
@@ -27,29 +25,7 @@ export class LineGraphInput extends React.Component{
   handleTitleChange(e){
     if(!this.state.titleToolTip){
       this.setState({
-        titleToolTip: true,
-        prefixToolTip: false,
-        suffixToolTip: false
-      })
-    }
-  }
-
-    handlePrefixChange(e){
-    if(!this.state.prefixToolTip){
-      this.setState({
-        titleToolTip: false,
-        prefixToolTip: true,
-        suffixToolTip: false
-      })
-    }
-  }
-
-    handleSuffixChange(e){
-    if(!this.state.suffixToolTip){
-      this.setState({
-        titleToolTip: false,
-        prefixToolTip: false,
-        suffixToolTip: true
+        titleToolTip: true
       })
     }
   }
@@ -77,10 +53,6 @@ export class LineGraphInput extends React.Component{
       <form>
         <label htmlFor="graphTitle">Graph Title</label><input id="graphTitle" ref={(value) => this.graphTitle = value} onChange={(e)=> this.handleTitleChange(e)} type="text" placeholder="Sales Reports"></input>
           {titleToolTip}
-        <label htmlFor="graphPrefix">Graph Prefix</label><input id="graphPrefix" ref={(value)=> this.graphPrefix = value} onChange={(e)=> this.handlePrefixChange(e)} type="text" placeholder="$"></input>
-          {prefixToolTip}
-        <label htmlFor="graphSuffix">Graph Suffix</label><input id="graphSuffix" ref={(value)=> this.graphSuffix = value} onChange={(e)=> this.handleSuffixChange(e)} type="text" placeholder="k"></input>
-          {suffixToolTip}
         <button className="create-graph-button" onClick={(e)=> this.handleSubmit(e)}>Create</button>
       </form>);
   }
