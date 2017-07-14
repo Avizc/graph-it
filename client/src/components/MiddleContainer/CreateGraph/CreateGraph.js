@@ -77,11 +77,11 @@ export class CreateGraph extends React.Component{
           <form>
             <label htmlFor="graphTitle">Graph Title</label><input id="graphTitle" ref={(value) => this.graphTitle = value} onChange={(e)=> this.handleTitleChange(e)} type="text" placeholder="Sales Reports"></input>
             {this.titleToolTip}
-            <label>Graph Prefix</label><input ref={(value)=> this.graphPrefix = value} onChange={(e)=> this.handlePrefixChange(e)} type="text" placeholder="$"></input>
+            <label htmlFor="graphPrefix">Graph Prefix</label><input id="graphPrefix" ref={(value)=> this.graphPrefix = value} onChange={(e)=> this.handlePrefixChange(e)} type="text" placeholder="$"></input>
             {this.prefixToolTip}
-            <label>Graph Suffix</label><input ref={(value)=> this.graphSuffix = value} onChange={(e)=> this.handleSuffixChange(e)} type="text" placeholder="k"></input>
+            <label htmlFor="graphSuffix">Graph Suffix</label><input id="graphSuffix" ref={(value)=> this.graphSuffix = value} onChange={(e)=> this.handleSuffixChange(e)} type="text" placeholder="k"></input>
             {this.suffixToolTip}
-            <button onClick={(e)=> this.handleSubmit(e)}>Create</button>
+            <button className="create-graph-button" onClick={(e)=> this.handleSubmit(e)}>Create</button>
           </form>
         </section>
       </section>

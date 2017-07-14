@@ -13,3 +13,14 @@ h3{
   font-family: 'Lato';
   font-size: 2em;
 }
+
+@media (max-width: 425px) {
+  .graph-container{
+    width: 70vw;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 780px) {
+ 
+
+}

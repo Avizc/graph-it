@@ -11,7 +11,7 @@ export class GraphContainer extends React.Component {
   render() {
     return (
       <section className="graph-container">
-        <VictoryChart domainPadding={24} theme={VictoryTheme.material}>
+        <VictoryChart domainPadding={24}>
           <VictoryBar data={this.props.graphData} x={"index"} y={"data"} />
           <VictoryAxis
             tickValues={this.props.columnCount}

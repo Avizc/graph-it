@@ -9,6 +9,10 @@ form{
   margin: 4px;
 }
 
+.create-graph-button{
+  margin-top: 13px;
+}
+
 .create-graph{
   background-color: #FEFCFD;
   padding: 45px;
@@ -29,4 +33,25 @@ label{
   font-family: 'Lato';
   font-weight: 600;
   color: #3B3355;
+}
+
+/* phones */
+@media (max-width: 425px) {
+  .create-graph{
+    width: 70vw;
+  }
+
+  h3{
+    font-size: 1em;
+  }
+}
+
+/* iPad */
+@media (min-width: 426px) and (max-width: 780px) {
+  .create-graph{
+    width: 80vw;
+  }
+  input{
+    margin: 8px;
+  }
 }
