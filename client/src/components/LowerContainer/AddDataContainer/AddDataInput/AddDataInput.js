@@ -98,7 +98,7 @@ export class AddDataInput extends React.Component{
           <label>Column name:</label><input ref={(name) => this.columnName = name} onChange={(e) => this.handleNameChange(e)} type="text" placeholder="Quarter 3 earnings"></input>
           {this.nameFeedback}
           {this.notLongEnough}
-          <button onClick={(e) => this.handleSubmit(e)} type="submit">Submit</button>
+          <button onClick={(e) => this.handleSubmit(e)} type="submit" className="submit-button">Submit</button>
           {this.cannotSubmit}
         </form>
       </div>
