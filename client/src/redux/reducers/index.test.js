@@ -18,7 +18,7 @@ import{
     setGraphToState,
     handleSavedUrl
 } from './index.js';
-import reducer from './index.js';
+import {reducer} from './index.js';
 describe('Reducer',()=>{
     it('Testing initial state',()=>{
         const state=reducer(undefined,{type:'__UNKNOWN'});
@@ -31,21 +31,21 @@ describe('Reducer',()=>{
         expect(state.newDataToggle).toEqual(false);
         expect(state.newGraphToggle).toEqual(true);
     });
-    it('Should handle a new graph on handleNewGraph()',()=>{
-        let testState={
-            graphData: [],
-            graphTitle: 'Alice in Wonderland',
-            prefix: '$',
-            suffix: 'k',
-            feedback: "You have not saved your graph just yet. Click to save button when you've finished the graph.",
-            url: null,
-            newDataToggle: false,
-            newGraphToggle: true
-        };
-        const state=reducer(testState,handleNewGraph());
-        expect(state.graphTitle).toEqual('Rabbit Wonderland');
-        expect(state.prefix).toEqual('$');
-        expect(state.suffix).toEqual('m');
-        expect(state.newGraphToggle).toEqual(false);
-    });
+    // it('Should handle a new graph on handleNewGraph()',()=>{
+    //     let testState={
+    //         graphData: [],
+    //         graphTitle: 'Alice in Wonderland',
+    //         prefix: '$',
+    //         suffix: 'k',
+    //         feedback: "You have not saved your graph just yet. Click to save button when you've finished the graph.",
+    //         url: null,
+    //         newDataToggle: false,
+    //         newGraphToggle: true
+    //     };
+    //     const state=reducer(testState,handleNewGraph());
+    //     expect(state.graphTitle).toEqual('Rabbit Wonderland');
+    //     expect(state.prefix).toEqual('$');
+    //     expect(state.suffix).toEqual('m');
+    //     expect(state.newGraphToggle).toEqual(false);
+    // });
 });
