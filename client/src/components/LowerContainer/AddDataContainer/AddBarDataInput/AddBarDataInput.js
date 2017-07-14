@@ -4,7 +4,7 @@ import {InputFeedback} from '../../../InputFeedback/InputFeedback.js';
 import {handleNewData} from '../../../../redux/actions';
 import './AddBarDataInput.css';
 
-export class AddDataInput extends React.Component{
+export class AddBarDataInput extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -66,39 +66,44 @@ export class AddDataInput extends React.Component{
   }
 
   render(){
-    let notLongEnough;
-    let dataFeedback;
-    let nameFeedback;
-    let cannotSubmit;
     if(this.state.notLongEnough){
-      notLongEnough = <InputFeedback feedback={'This input cannot be left blank.'} />
+      this.notLongEnough = <InputFeedback feedback={'This input cannot be left blank.'} />
+    }else{
+      this.notLongEnough = undefined;
     }
+
     if(this.state.dataFeedback){
-      dataFeedback = <InputFeedback feedback={'This input must be a number.'}/>
+      this.dataFeedback = <InputFeedback feedback={'This input must be a number.'}/>
+    }else{
+      this.dataFeedback = undefined
     }
 
     if(this.state.columnNameFeedback){
-      nameFeedback = <InputFeedback feedback={'Just a little warning: column names should be kept short and sweet.'} />
+      this.nameFeedback = <InputFeedback feedback={'Just a little warning: column names should be kept short and sweet.'} />
+    }else{
+      this.nameFeedback = undefined;
     }
 
     if(this.state.cannotSubmit){
-      cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
+      this.cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
+    }else{
+      // <InputFeedback>Make sure both inputs are valid before submitting.</InputFeedback>
+      this.cannotSubmit = undefined;
     }
-
     return(
       <div className="input-container">
         <form className="inputForm">
           <label>Column data:</label><input ref={(dataValue) => this.dataValue = dataValue} onChange={(e) => this.handleDataChange(e)} type="text" placeholder="240k"></input>
-          {dataFeedback}
+          {this.dataFeedback}
           <label>Column name:</label><input ref={(name) => this.columnName = name} onChange={(e) => this.handleNameChange(e)} type="text" placeholder="Quarter 3 earnings"></input>
-          {nameFeedback}
-          {notLongEnough}
+          {this.nameFeedback}
+          {this.notLongEnough}
           <button onClick={(e) => this.handleSubmit(e)} type="submit" className="submit-button">Submit</button>
-          {cannotSubmit}
+          {this.cannotSubmit}
         </form>
       </div>
     );
   }
 }
 
-export default connect()(AddDataInput)
+export default connect()(AddBarDataInput)

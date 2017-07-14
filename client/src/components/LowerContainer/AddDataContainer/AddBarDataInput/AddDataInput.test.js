@@ -1,13 +1,13 @@
 import React from 'react';
 import {shallow,mount} from 'enzyme';
-import AddDataInput from './AddDataInput.js';
-describe('<AddDataInput />',()=>{
+import AddBarDataInput from './AddBarDataInput.js';
+describe('<AddBarDataInput />',()=>{
     it('Render without crashing!',()=>{
-        shallow(<AddDataInput />);
+        shallow(<AddBarDataInput />);
     });
     it('Should handle on submit when the form is submitted',()=>{
         const callback=jest.fn();
-        const wrapper=mount(<AddDataInput handleSubmit={callback}/>);
+        const wrapper=mount(<AddBarDataInput handleSubmit={callback}/>);
         const data=3;
         const columnName='Tea';
         wrapper.find('input[type="text"]').node.data=data;

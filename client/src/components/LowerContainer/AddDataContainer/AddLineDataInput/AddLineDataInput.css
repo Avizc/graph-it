@@ -1,0 +1,23 @@
+.input-container{
+  display: flex;
+  justify-content: space-around;
+  background-color: #FEFCFD;
+  border-radius: 6px;
+  padding: 0;
+  margin: 10px 0 25px 0;
+}
+
+.inputForm{
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  margin: 8px auto;
+  width: 90%;
+}
+
+.submit-button{
+  padding: 10px;
+  font-size: 15px;
+}
