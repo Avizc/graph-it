@@ -5,4 +5,4 @@ describe('<App />',()=>{
     it('Render without crashing',()=>{
         shallow(<App />);
     });
-})
+});
