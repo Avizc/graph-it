@@ -2,6 +2,7 @@ import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_BAR_GRAPH, HANDLE_NEW_GRAPH, NEW
 
 const initialState = {
   graphData: [],
+  tempGraphData: [],
   graphTitle: '',
   prefix: '',
   suffix: '',
@@ -24,9 +25,9 @@ export const reducer = (state = initialState, action) => {
     case TOGGLE_NEW_DATA:
       return Object.assign({}, state, {newDataToggle: !state.newDataToggle})
     case RESET_BAR_GRAPH:
-      return Object.assign({}, state, initialState, {newGraphToggle: false, prefix: state.prefix, suffix: state.suffix, graphTitle: state.graphTitle})
+      return Object.assign({}, state, initialState, {prefix: state.prefix, suffix: state.suffix, graphTitle: state.graphTitle})
     case RESET_LINE_GRAPH:
-      return Object.assign({}. state, initialState, {graphType: 'LINE'})
+      return Object.assign({}. state, initialState, {graphType: 'LINE', graphTitle: state.graphTitle})
     case HANDLE_ERROR:
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:

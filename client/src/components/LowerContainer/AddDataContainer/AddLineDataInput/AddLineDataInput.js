@@ -8,7 +8,7 @@ export class AddLineDataInput extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      yFeedback: false,
+      pointFeedback: false,
       cannotSubmit: false
     }
   }
@@ -16,7 +16,7 @@ export class AddLineDataInput extends React.Component{
   handleSubmit(e){
     e.preventDefault()
     const yValue = this.yValue.value;
-    if(this.state.xFeedback){
+    if(this.state.pointFeedback){
       this.setState({
         cannotSubmit: true
       })
@@ -30,35 +30,33 @@ export class AddLineDataInput extends React.Component{
     console.log(Number(e.target.value))
     if(isNaN(Number(e.target.value))){
       this.setState({
-        yFeedback: true,
+        pointFeedback: true,
       })
     }else{
       this.setState({
-        yFeedback: false
+        pointFeedback: false
       })
     }
   }
 
 
   render(){
-    if(this.state.xFeedback){
-      this.xFeedback = <InputFeedback feedback={'This input must be a number.'}/>
-    }else{
-      this.xFeedback = '';
+    let pointFeedback;
+    let cannotSubmit;
+    if(this.state.yFeedback){
+      pointFeedback = <InputFeedback feedback={'This input must be a number. It will be displayed as a point on the line graph.'}/>
     }
     if(this.state.cannotSubmit){
-      this.cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
-    }else{
-      this.cannotSubmit = '';
+      cannotSubmit = <InputFeedback feedback={'Make sure both inputs are valid before submitting.'} />
     }
-
     return(
       <div className="input-container">
+        <InputFeedback feedback={"Start inputting data. When you're finsihed, hit the submit button. We'll take care of the rest."} />
         <form className="inputForm">
           <label>Add a point:</label><input ref={(yValue) => this.yValue = yValue} onChange={(e) => this.handleYChange(e)} type="text" placeholder="4"></input>
-          {this.yFeedback}
+          {pointFeedback}
           <button onClick={(e) => this.handleSubmit(e)} type="submit" className="submit-button">Submit</button>
-          {this.cannotSubmit}
+          {cannotSubmit}
         </form>
       </div>
     );
