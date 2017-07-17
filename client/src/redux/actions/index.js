@@ -20,6 +20,11 @@ export const handleNewGraph = (title, suffix, prefix) => ({
   prefix
 })
 
+export const SET_LINE_DATA = 'SET_LINE_DATA';
+export const setNewLineData = () => ({
+  type: SET_LINE_DATA
+});
+
 export const TOGGLE_NEW_DATA = 'TOGGLE_NEW_DATA';
 export const toggleNewData = () => ({
   type: TOGGLE_NEW_DATA

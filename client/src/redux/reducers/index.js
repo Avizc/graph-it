@@ -1,4 +1,6 @@
-import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_BAR_GRAPH, HANDLE_NEW_GRAPH, NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL, HANDLE_GRAPH_TYPE_CHANGE, RESET_LINE_GRAPH, HANDLE_NEW_LINE_DATA} from '../actions';
+import {HANDLE_NEW_DATA, TOGGLE_NEW_DATA, RESET_BAR_GRAPH, HANDLE_NEW_GRAPH, 
+  NEW_GRAPH, HANDLE_SAVE, HANDLE_ERROR, SET_GRAPH_TO_STATE, HANDLE_SAVED_URL, 
+  HANDLE_GRAPH_TYPE_CHANGE, RESET_LINE_GRAPH, HANDLE_NEW_LINE_DATA, SET_LINE_DATA} from '../actions';
 
 const initialState = {
   graphData: [],
@@ -37,7 +39,9 @@ export const reducer = (state = initialState, action) => {
     case HANDLE_GRAPH_TYPE_CHANGE:
       return Object.assign({}, state, {graphType: action.graphType})
     case HANDLE_NEW_LINE_DATA:
-      return Object.assign({}, state, {graphData: [...state.graphData, {x: state.graphData.length + 1, y: action.y}]})
+      return Object.assign({}, state, {tempGraphData: [...state.tempGraphData, {x: state.graphData.length + 1, y: action.y}]})
+    case SET_LINE_DATA:
+      return Object.assign({}, state, {graphData: [...state.tempGraphData]});
     default:
       return state;
   }
