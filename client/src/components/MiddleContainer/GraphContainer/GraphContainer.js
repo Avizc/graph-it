@@ -28,9 +28,11 @@ export class GraphContainer extends React.Component {
         );
     case 'LINE':
         return(
-          <VictoryChart>
-            <VictoryLine data={this.props.graphData}></VictoryLine>
-          </VictoryChart>
+          <section className="graph-container">
+            <VictoryChart>
+              <VictoryLine data={this.props.graphData}></VictoryLine>
+            </VictoryChart>
+          </section>
         );
       }
     }
