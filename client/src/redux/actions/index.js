@@ -25,9 +25,9 @@ export const toggleNewData = () => ({
   type: TOGGLE_NEW_DATA
 });
 
-export const RESET_GRAPH = 'RESET_GRAPH';
-export const resetGraph = () => ({
-  type: RESET_GRAPH
+export const RESET_BAR_GRAPH = 'RESET_BAR_GRAPH';
+export const resetBarGraph = () => ({
+  type: RESET_BAR_GRAPH
 });
 
 export const RESET_LINE_GRAPH = 'RESET_LINE_GRAPH';
