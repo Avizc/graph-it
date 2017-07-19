@@ -52,7 +52,7 @@ app.post("/api/graphs", (req, res) => {
   console.log('#####', req.body)
   const confirmedData = [];
   let currentObj;
-  const checkedKeys = ["index", "data", "columnName", 'x', 'x', 'graphType'];
+  const checkedKeys = ["index", "data", "columnName", 'x', 'x'];
   const dataArr = req.body.graphData;
 
   for (let i = 0; i < dataArr.length; i++) {
@@ -66,6 +66,7 @@ app.post("/api/graphs", (req, res) => {
   }
 
   console.log('### THIS IS DATA ###' ,confirmedData);
+  console.log('##GRAPH TYPE##', req.body.graphType)
 
   Graphs.create({
     graphTitle: req.body.graphTitle,

@@ -62,7 +62,8 @@ export const setGraphToState = (graphObj) => ({
   graphData: graphObj.graphData,
   graphTitle: graphObj.graphTitle,
   prefix: graphObj.prefix,
-  suffix: graphObj.suffix
+  suffix: graphObj.suffix,
+  graphType: graphObj.graphType
 })
 
 export const HANDLE_SAVED_URL = 'HANDLE_SAVED_URL';
