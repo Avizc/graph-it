@@ -27,12 +27,13 @@ export const reducer = (state = initialState, action) => {
     case TOGGLE_NEW_DATA:
       return Object.assign({}, state, {newDataToggle: !state.newDataToggle})
     case RESET_BAR_GRAPH:
-      return Object.assign({}, state, initialState, {prefix: state.prefix, suffix: state.suffix, graphTitle: state.graphTitle})
+      return Object.assign({}, state, initialState, {graphType: 'BAR', prefix: state.prefix, suffix: state.suffix, graphTitle: state.graphTitle})
     case RESET_LINE_GRAPH:
       return Object.assign({}. state, initialState, {graphType: 'LINE', graphTitle: state.graphTitle})
     case HANDLE_ERROR:
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:
+      console.log('ACTION', action)
       return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false, linkView: true});
     case HANDLE_SAVED_URL:
       return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it.`, url: action.url})
