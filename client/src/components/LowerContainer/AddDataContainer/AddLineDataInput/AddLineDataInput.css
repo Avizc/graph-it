@@ -1,6 +1,7 @@
 .input-container{
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   background-color: #FEFCFD;
   border-radius: 6px;
   padding: 0;
@@ -20,4 +21,14 @@ input{
 .submit-button{
   padding: 10px;
   font-size: 15px;
+}
+
+.add-button{
+  padding: 10px;
+  font-size: 15px;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
 }

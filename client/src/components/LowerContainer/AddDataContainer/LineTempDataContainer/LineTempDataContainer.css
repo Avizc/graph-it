@@ -1,0 +1,12 @@
+.temp-data-container{
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+
+.temp-data-header{
+  margin: 15px 0;
+}

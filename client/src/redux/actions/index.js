@@ -21,7 +21,7 @@ export const handleNewGraph = (title, suffix, prefix) => ({
 })
 
 export const SET_LINE_DATA = 'SET_LINE_DATA';
-export const setNewLineData = () => ({
+export const setLineData = () => ({
   type: SET_LINE_DATA
 });
 

@@ -39,9 +39,9 @@ export const reducer = (state = initialState, action) => {
     case HANDLE_GRAPH_TYPE_CHANGE:
       return Object.assign({}, state, {graphType: action.graphType})
     case HANDLE_NEW_LINE_DATA:
-      return Object.assign({}, state, {tempGraphData: [...state.tempGraphData, {x: state.graphData.length + 1, y: action.y}]})
+      return Object.assign({}, state, {tempGraphData: [...state.tempGraphData, {x: state.tempGraphData.length + 1, y: action.y}]})
     case SET_LINE_DATA:
-      return Object.assign({}, state, {graphData: [...state.tempGraphData]});
+      return Object.assign({}, state, {graphData: [...state.tempGraphData], tempGraphData: []});
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import AddDataButton from './AddDataButton/AddDataButton.js';
 import AddDataInput from './AddBarDataInput/AddBarDataInput.js';
 import AddLineDataInput from './AddLineDataInput/AddLineDataInput.js';
+import LineTempDataContainer from './LineTempDataContainer/LineTempDataContainer.js';
 import {connect} from 'react-redux';
 import './AddDataContainer.css';
 
@@ -12,7 +13,6 @@ export class AddDataContainer extends React.Component{
     if(!this.props.isToggled){
       return(<div><AddDataButton/></div>)
     }
-    console.log(this.props.graphType)
     switch(this.props.graphType){
       case 'BAR':
         return(
@@ -25,6 +25,7 @@ export class AddDataContainer extends React.Component{
         return(
         <div className="container">
             <AddDataButton />
+            <LineTempDataContainer />
             <AddLineDataInput />
           </div>
         );
