@@ -7,7 +7,8 @@ const graphSchema = mongoose.Schema({
   yLabel: { type: String },
   prefix: { type: String },
   suffix: { type: String },
-  graphData: {type: Array}
+  graphData: {type: Array},
+  graphType: {type: String}
 });
 // const savedGraphSchema=mongoose.Schema({
 //     savedGraphTitle:{type:String,required:true}
@@ -20,7 +21,8 @@ graphSchema.methods.apiRepr = function() {
     yLabel: this.yLabel,
     prefix: this.prefix,
     suffix: this.suffix,
-    graphData: this.graphData
+    graphData: this.graphData,
+    graphType: this.graphType
   };
 };
 const Graphs = mongoose.model("Graphs", graphSchema);

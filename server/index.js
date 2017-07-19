@@ -73,7 +73,8 @@ app.post("/api/graphs", (req, res) => {
     yLabel: req.body.yLabel,
     prefix: req.body.prefix,
     suffix: req.body.suffix,
-    graphData: confirmedData
+    graphData: confirmedData,
+    graphType: req.body.graphType
   })
     .then(graph => {
       res.status(201).json(graph);
