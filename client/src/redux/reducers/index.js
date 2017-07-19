@@ -37,7 +37,7 @@ export const reducer = (state = initialState, action) => {
       if(action.graphType === 'BAR'){
         return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false, linkView: true, graphType: action.graphType});
       }else if(action.graphType === 'LINE'){
-        return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, newGraphToggle: false, linkView: true, graphType: action.graphType});
+        return Object.assign({}, state, {graphData: [...action.graphData], graphTitle: action.graphTitle, newGraphToggle: false, linkView: true, graphType: action.graphType});
       }else{
         console.log("Something went wrong, the graph type didn't match anything above. Here it is:", action.graphType)
       }
