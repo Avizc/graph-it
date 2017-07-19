@@ -52,7 +52,7 @@ app.post("/api/graphs", (req, res) => {
   console.log('#####', req.body)
   const confirmedData = [];
   let currentObj;
-  const checkedKeys = ["index", "data", "columnName"];
+  const checkedKeys = ["index", "data", "columnName", 'x', 'x'];
   const dataArr = req.body.graphData;
 
   for (let i = 0; i < dataArr.length; i++) {

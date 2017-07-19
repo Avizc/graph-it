@@ -34,7 +34,13 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {feedback: action.error})
     case SET_GRAPH_TO_STATE:
       console.log('ACTION', action)
-      return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false, linkView: true});
+      if(action.graphType === 'BAR'){
+        return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, prefix: action.prefix, suffix: action.suffix, newGraphToggle: false, linkView: true, graphType: action.graphType});
+      }else if(action.graphType === 'LINE'){
+        return Object.assign({}, state, {graphData: action.graphData, graphTitle: action.graphTitle, newGraphToggle: false, linkView: true, graphType: action.graphType});
+      }else{
+        console.log("Something went wrong, the graph type didn't match anything above. Here it is:", action.graphType)
+      }
     case HANDLE_SAVED_URL:
       return Object.assign({}, state, {feedback: `Your graph has been saved! Click this link to view it.`, url: action.url})
     case HANDLE_GRAPH_TYPE_CHANGE:
