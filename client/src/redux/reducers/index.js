@@ -41,7 +41,7 @@ export const reducer = (state = initialState, action) => {
     case HANDLE_NEW_LINE_DATA:
       return Object.assign({}, state, {tempGraphData: [...state.tempGraphData, {x: state.tempGraphData.length + 1, y: action.y}]})
     case SET_LINE_DATA:
-      return Object.assign({}, state, {graphData: [...state.tempGraphData], tempGraphData: []});
+      return Object.assign({}, state, {graphData: [...state.graphData, ...state.tempGraphData], tempGraphData: [...state.graphData]});
     default:
       return state;
   }
