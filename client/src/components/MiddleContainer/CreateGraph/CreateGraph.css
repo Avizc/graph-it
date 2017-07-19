@@ -35,6 +35,12 @@ label{
   color: #3B3355;
 }
 
+.radio-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* phones */
 @media (max-width: 425px) {
   .create-graph{

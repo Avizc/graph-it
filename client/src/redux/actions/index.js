@@ -1,9 +1,16 @@
+//handle new bar data
 export const HANDLE_NEW_DATA = 'HANDLE_NEW_DATA';
 export const handleNewData = (data, columnName) => ({
   type: HANDLE_NEW_DATA,
   data,
   columnName
 });
+
+export const HANDLE_NEW_LINE_DATA = 'HANDLE_NEW_LINE_DATA';
+export const handleNewLineData = (y) => ({
+  type: HANDLE_NEW_LINE_DATA,
+  y
+}) 
 
 export const HANDLE_NEW_GRAPH = 'HANDLE_NEW_GRAPH';
 export const handleNewGraph = (title, suffix, prefix) => ({
@@ -13,15 +20,25 @@ export const handleNewGraph = (title, suffix, prefix) => ({
   prefix
 })
 
+export const SET_LINE_DATA = 'SET_LINE_DATA';
+export const setLineData = () => ({
+  type: SET_LINE_DATA
+});
+
 export const TOGGLE_NEW_DATA = 'TOGGLE_NEW_DATA';
 export const toggleNewData = () => ({
   type: TOGGLE_NEW_DATA
 });
 
-export const RESET_GRAPH = 'RESET_GRAPH';
-export const resetGraph = () => ({
-  type: RESET_GRAPH
+export const RESET_BAR_GRAPH = 'RESET_BAR_GRAPH';
+export const resetBarGraph = () => ({
+  type: RESET_BAR_GRAPH
 });
+
+export const RESET_LINE_GRAPH = 'RESET_LINE_GRAPH';
+export const resetLineGraph = () => ({
+  type: RESET_LINE_GRAPH
+})
 
 export const NEW_GRAPH = 'NEW_GRAPH';
 export const newGraph = () => ({
@@ -53,6 +70,12 @@ export const handleSavedUrl = (url) => ({
   type: HANDLE_SAVED_URL,
   url
 })
+
+export const HANDLE_GRAPH_TYPE_CHANGE = 'HANDLE_GRAPH_TYPE_CHANGE';
+export const handleGraphTypeChange = (graphType) => ({
+  type: HANDLE_GRAPH_TYPE_CHANGE,
+  graphType
+}) 
 
 export const saveGraph = (graphObj) => (dispatch) => {
   dispatch(handleLoading());

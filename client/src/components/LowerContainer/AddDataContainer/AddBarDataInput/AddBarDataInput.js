@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {InputFeedback} from '../../../InputFeedback/InputFeedback.js';
 import {handleNewData} from '../../../../redux/actions';
-import './AddDataInput.css';
+import './AddBarDataInput.css';
 
-export class AddDataInput extends React.Component{
+export class AddBarDataInput extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -106,4 +106,4 @@ export class AddDataInput extends React.Component{
   }
 }
 
-export default connect()(AddDataInput)
+export default connect()(AddBarDataInput)
