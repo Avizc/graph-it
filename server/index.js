@@ -1,10 +1,10 @@
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
+const bodyParser = require("body-parser");
 const { DATABASE_URL, PORT } = require("./config.js");
 const { Graphs } = require("./models.js");
-const bodyParser = require("body-parser");
+const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -55,7 +55,9 @@ app.post("/api/graphs", (req, res) => {
   const checkedKeys = ["index", "data", "columnName", 'x', 'y'];
   const dataArr = req.body.graphData;
 
+//Change from for-loop to just .forEach only to clean up
   for (let i = 0; i < dataArr.length; i++) {
+    //Can recreate with reduce
     currentObj = {};
     checkedKeys.forEach(key => {
       if (dataArr[i][key]) {
@@ -95,6 +97,7 @@ app.put("/api/graphs/:id", (req, res) => {
     "suffix",
     "graphData",
   ];
+  //Implicit returns ternary/clean up code here
   updateGraph.forEach(graph => {
     if (req.body[graph]) {
       return (updateThisRabbit[graph] = req.body[graph]);
@@ -124,6 +127,8 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Unhandled requests which aren't for the API should serve index.html so
 // client-side routing using browserHistory can function
+
+// Not good practice to do this
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
   const index = path.resolve(__dirname, "../client/build", "index.html");
   res.sendFile(index);
