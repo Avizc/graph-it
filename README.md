@@ -1,46 +1,41 @@
 # Graph It
 
-A graph making and sharing tool
+A graph making and sharing tool.
 
-## API Documentation
+## What is GraphIt?
 
-//GET all graphs
-* '/api/graphs'
+GraphIt allows you to quickly and easily make graphs then share them with a simple link.
 
-//GET graphs by ID
-* '/api/graphs/:id'
+## What runs GraphIt?
+* [MongoDB](https://www.mongodb.com/) - A NoSQL (document) database
+* [Express](http://expressjs.com/) - A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
+* [Node.js](https://nodejs.org/en/) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows developers to easily build scalable network applications
+* [React](https://facebook.github.io/react/) - A JavaScript frontend library for creating and building user interfaces
+* [Victory Graphs](https://formidable.com/open-source/victory/) - React.js components for modular charting and data visualization
 
-//POST a graph 
-* '/api/graphs'
+## Known issues & plans for the future
+* Add more graph types in
+* Add option for private or public graphs
 
-//PUT by ID
-* '/api/graphs/:id
+## Getting started
+```
+# Clone the most recent repo
+https://github.com/Avizc/graph-it.git
 
-//DELETE by ID
-* '/api/graphs/:id'
+# Open our repo on your local machine!
+cd graph-it
 
-## Summary
+# Install all of our dependencies, this does require a pre-req of having Node.js installed
+npm install
 
-Allows you to quickly and easily make graphs then share them with a simple link.
+# Now you're going to want to create a .env file for our database URLs
+export DATABASE_URL=''
+export TEST_DATABASE_URL=''
 
-## Technology Used
+# Huzzah now lets run this cuteness!
+npm start
+```
 
-Front-end technologies
-* React, Redux, Victory Graphs, Flexbox
+## Useful links
 
-Server technologies
-* NodeJS (Express, Mocha/Chai, Enzyme)
-
-Data Persistence
-* MongoDB with Mongoose, mLab
-
-CICD
-* Travis CI & Heroku
-
-Development Environment
-* Visual Studio Code, Google Chrome, Postman
-
-## Links
-
-Heroku deployment
-* Home page (<a href="https://graph-it-thinkful.herokuapp.com/">here</a>)
+[Demo](https://graph-it-thinkful.herokuapp.com/)
